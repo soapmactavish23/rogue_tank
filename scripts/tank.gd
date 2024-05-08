@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var speed = 100
+var pre_bullet = preload("res://scenes/bullet.tscn")
 
 func _ready():
 	pass

@@ -6,7 +6,7 @@
 [node name="test_area" type="Node"]
 
 [node name="Tank" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -1 )
+position = Vector2( 532, 419 )
 
 [node name="bullet" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -41 )
+position = Vector2( 532, 379 )
