@@ -5,4 +5,4 @@
 [node name="test_area" type="Node"]
 
 [node name="Tank" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32, 566 )
+position = Vector2( 545, 288 )
