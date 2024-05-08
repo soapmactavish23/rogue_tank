@@ -19,3 +19,6 @@ polygon = PoolVector2Array( -18, -16, -20, -7, -19, 16, -16, 18, -12, 18, 13, 18
 [node name="sprite" type="Sprite" parent="barrel"]
 texture = ExtResource( 3 )
 offset = Vector2( 0, -14 )
+
+[node name="muzzle" type="Position2D" parent="barrel"]
+position = Vector2( 0, -41 )

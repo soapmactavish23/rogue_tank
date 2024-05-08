@@ -19,6 +19,9 @@ func _process(delta):
 	if Input.is_action_pressed("ui_down"):
 		dir_y += 1
 	
+	if Input.is_action_just_pressed(("ui_shoot")):
+		print("boom")
+	
 	
 	translate(Vector2(dir_x, dir_y) * delta * speed)
 	
