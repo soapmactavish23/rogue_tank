@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/bulletGreen2.png-8c739662d7b02cec13f062dcbd9b1398.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/bulletGreen2.png"
+source_md5="3fa31c558eb58746054bc8bcf5a243bd"
+
 dest_files=[ "res://.import/bulletGreen2.png-8c739662d7b02cec13f062dcbd9b1398.stex" ]
+dest_md5="13c835b2a2b40c1ad9ba1a186de96e90"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tankSand_barrel2.png-b91bc85cfe0a335b4a358ce139c19540.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/tankSand_barrel2.png"
+source_md5="b2c483f08cbd7f070baa622c086ff13c"
+
 dest_files=[ "res://.import/tankSand_barrel2.png-b91bc85cfe0a335b4a358ce139c19540.stex" ]
+dest_md5="a024b710f5281efac485beaf9e665b3a"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

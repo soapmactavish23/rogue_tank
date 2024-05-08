@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/bulletBlue1.png-462dec6d16265184273b20d465eea0ca.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/bulletBlue1.png"
+source_md5="d9646540855e5aa7c2dd5c779c62d270"
+
 dest_files=[ "res://.import/bulletBlue1.png-462dec6d16265184273b20d465eea0ca.stex" ]
+dest_md5="db43b587802aff72eb5de12ad5da38c2"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

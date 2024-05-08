@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/specialBarrel7_outline.png-dadead733c3330f3734e94e8b1ef0f33.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/specialBarrel7_outline.png"
+source_md5="9d114cf83ff0eb874318be386433ee8b"
+
 dest_files=[ "res://.import/specialBarrel7_outline.png-dadead733c3330f3734e94e8b1ef0f33.stex" ]
+dest_md5="6a4174d97a44d7f3d55bca55050294d9"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

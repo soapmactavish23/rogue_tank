@@ -22,6 +22,9 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed(("ui_shoot")):
 		print("boom")
+		var bullet = pre_bullet.instance()
+		bullet.global_position = $barrel/muzzle.global_position
+		get_parent().add_child(bullet)
 	
 	
 	translate(Vector2(dir_x, dir_y) * delta * speed)

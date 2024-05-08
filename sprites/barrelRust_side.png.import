@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/barrelRust_side.png-fb2a5f863729eabce06d1cc179b6b7c5.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/barrelRust_side.png"
+source_md5="392532a25c764aa34f813ca8982ff849"
+
 dest_files=[ "res://.import/barrelRust_side.png-fb2a5f863729eabce06d1cc179b6b7c5.stex" ]
+dest_md5="6997933719396b21505aa5a963f8b398"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

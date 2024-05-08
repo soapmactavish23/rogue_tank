@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/crateMetal_side.png-8323cbdd25a8f095b7998480e74fa6f2.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/crateMetal_side.png"
+source_md5="73a251c4beb55010e9714a68767815a4"
+
 dest_files=[ "res://.import/crateMetal_side.png-8323cbdd25a8f095b7998480e74fa6f2.stex" ]
+dest_md5="d7d513928b06e5347c28668908c452b2"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

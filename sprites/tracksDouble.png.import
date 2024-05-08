@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tracksDouble.png-5197f51eb07becbd1f511005d3e97947.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/tracksDouble.png"
+source_md5="fb264787ea9ba89a90304e0bff372d67"
+
 dest_files=[ "res://.import/tracksDouble.png-5197f51eb07becbd1f511005d3e97947.stex" ]
+dest_md5="1af3572c86ac7cf8280d807c677ef69f"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

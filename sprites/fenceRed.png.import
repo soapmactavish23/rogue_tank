@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/fenceRed.png-234253adbc1a9be942b38e8e3842c783.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/fenceRed.png"
+source_md5="262b9fef1b9118d07e3f370c4fc086a0"
+
 dest_files=[ "res://.import/fenceRed.png-234253adbc1a9be942b38e8e3842c783.stex" ]
+dest_md5="e03647ed0b17dc9f7964ff6236d94d75"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

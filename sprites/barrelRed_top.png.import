@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/barrelRed_top.png-6f2c7dabaa45c35c74a0174e0ebdc77b.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/barrelRed_top.png"
+source_md5="d240c9de5fc89567c3011c9b2c264a9e"
+
 dest_files=[ "res://.import/barrelRed_top.png-6f2c7dabaa45c35c74a0174e0ebdc77b.stex" ]
+dest_md5="c088f139a495f01f5cf632ee2c7295f6"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

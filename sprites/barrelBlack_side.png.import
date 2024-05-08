@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/barrelBlack_side.png-7229f76e7446e807f1212afdcbe1895f.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/barrelBlack_side.png"
+source_md5="f1f01dca42283be1d4faa37f03934794"
+
 dest_files=[ "res://.import/barrelBlack_side.png-7229f76e7446e807f1212afdcbe1895f.stex" ]
+dest_md5="32e868ff4984679a6aee3ece75a41c01"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

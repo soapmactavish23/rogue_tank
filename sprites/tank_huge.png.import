@@ -3,21 +3,20 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tank_huge.png-d06325d679d2cbec86c4c6aac7537085.stex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://sprites/tank_huge.png"
+source_md5="f6ccaac5693685b31d338fd9478ca7ad"
+
 dest_files=[ "res://.import/tank_huge.png-d06325d679d2cbec86c4c6aac7537085.stex" ]
+dest_md5="54d272fb345639761f2fa5c8088bfddf"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -27,8 +26,6 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
