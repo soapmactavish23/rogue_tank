@@ -14,7 +14,9 @@ script = ExtResource( 1 )
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
+rotation = 1.5708
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="poly" type="CollisionPolygon2D" parent="." index="1"]
 
@@ -26,11 +28,13 @@ polygon = PoolVector2Array( -18, -16, -20, -7, -19, 16, -16, 18, -12, 18, 13, 18
 
 [node name="sprite" type="Sprite" parent="barrel" index="0"]
 
+rotation = 1.5708
 texture = ExtResource( 3 )
 offset = Vector2( 0, -14 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="muzzle" type="Position2D" parent="barrel" index="1"]
 
-position = Vector2( 0, -41 )
+position = Vector2( 38.635, -0.433273 )
 
 
