@@ -1,10 +1,11 @@
+tool
 extends KinematicBody2D
 
 var speed = 150
 var pre_bullet = preload("res://scenes/bullet.tscn")
 
-export(int, "green", "bigRed") var body = 0
-export var barrel = 0
+export(int, "green", "bigRed", "blue", "dark", "darkLarge", "huge", "sand") var body = 0 setget set_body
+export(int, "green", "bigRed", "blue", "dark", "darkLarge", "huge", "sand") var barrel = 0 setget set_barrel
 
 var bodies = [
 	"res://sprites/tankBody_green.png",
@@ -26,11 +27,16 @@ var barrels = [
 ]
 
 func _ready():
+	pass
+
+func _draw():
 	$sprite.texture = load(bodies[body])
 	$barrel/sprite.texture = load(barrels[barrel])
-	pass
 	
 func _process(delta):
+	
+	if Engine.editor_hint:
+		return
 	
 	var dir_x = 0
 	var dir_y = 0
@@ -58,5 +64,13 @@ func _process(delta):
 	
 	
 	translate(Vector2(dir_x, dir_y) * delta * speed)
-	
-	pass
+
+func set_body(val):
+	body = val
+	if Engine.editor_hint:
+		update()
+
+func set_barrel(val):
+	barrel = val
+	if Engine.editor_hint:
+		update()
