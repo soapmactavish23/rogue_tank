@@ -3,18 +3,31 @@ extends KinematicBody2D
 var speed = 150
 var pre_bullet = preload("res://scenes/bullet.tscn")
 
+export(int, "green", "bigRed") var body = 0
+export var barrel = 0
+
 var bodies = [
+	"res://sprites/tankBody_green.png",
 	"res://sprites/tankBody_bigRed.png",
 	"res://sprites/tankBody_blue.png",
 	"res://sprites/tankBody_dark.png",
 	"res://sprites/tankBody_darkLarge.png",
-	"res://sprites/tankBody_green.png",
 	"res://sprites/tankBody_huge.png",
 	"res://sprites/tankBody_sand.png"
 ]
 
+var barrels = [
+	"res://sprites/tankDark_barrel1_outline.png",
+	"res://sprites/tankDark_barrel1.png",
+	"res://sprites/tankBlue_barrel1.png",
+	"res://sprites/tankGreen_barrel1.png",
+	"res://sprites/tankSand_barrel1.png",
+	"res://sprites/tankRed_barrel1.png"
+]
+
 func _ready():
-	$sprite.texture = load(bodies[0])
+	$sprite.texture = load(bodies[body])
+	$barrel/sprite.texture = load(barrels[barrel])
 	pass
 	
 func _process(delta):
