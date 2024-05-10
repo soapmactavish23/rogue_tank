@@ -26,10 +26,10 @@ func _process(delta):
 			bullet.global_position = $barrel/muzzle.global_position
 			
 			bullet.dir = Vector2(cos(rotation), sin(rotation)).normalized()
-			
+			$barrel/anim.play("fire")
 			get_parent().add_child(bullet)
 		
-	look_at(dir_x)
+	look_at(get_global_mouse_position())
 		
 	
 	
