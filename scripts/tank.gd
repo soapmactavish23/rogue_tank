@@ -1,6 +1,8 @@
 tool
 extends KinematicBody2D
 
+var BULLET_TANK_GROUP = "bullet-" + str(self)
+
 var speed = 150
 var pre_bullet = preload("res://scenes/bullet.tscn")
 
@@ -51,13 +53,18 @@ func _process(delta):
 		dir_y += 1
 	
 	if Input.is_action_just_pressed(("ui_shoot")):
-		if get_tree().get_nodes_in_group("cannon_bullets").size() < 6:
+
+		if get_tree().get_nodes_in_group(BULLET_TANK_GROUP).size() < 6:
 			var bullet = pre_bullet.instance()
 			bullet.global_position = $barrel/muzzle.global_position
 			
 			bullet.dir = Vector2(cos(rotation), sin(rotation)).normalized()
+			bullet.add_to_group(BULLET_TANK_GROUP)
 			$barrel/anim.play("fire")
 			get_parent().add_child(bullet)
+			
+			
+			
 		
 	look_at(get_global_mouse_position())
 		
