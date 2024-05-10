@@ -3,7 +3,18 @@ extends KinematicBody2D
 var speed = 150
 var pre_bullet = preload("res://scenes/bullet.tscn")
 
+var bodies = [
+	"res://sprites/tankBody_bigRed.png",
+	"res://sprites/tankBody_blue.png",
+	"res://sprites/tankBody_dark.png",
+	"res://sprites/tankBody_darkLarge.png",
+	"res://sprites/tankBody_green.png",
+	"res://sprites/tankBody_huge.png",
+	"res://sprites/tankBody_sand.png"
+]
+
 func _ready():
+	$sprite.texture = load(bodies[0])
 	pass
 	
 func _process(delta):
