@@ -70,7 +70,7 @@ func _process(delta):
 		
 	
 	
-	translate(Vector2(dir_x, dir_y) * delta * speed)
+	move_and_slide(Vector2(dir_x, dir_y) * speed)
 
 func set_body(val):
 	body = val

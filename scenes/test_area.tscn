@@ -1,17 +1,61 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/tank.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 516.197, 10 )
 
 [node name="test_area" type="Node"]
 
 [node name="Tank" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 532, 419 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Tank2" parent="." index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 812.237, 236.71 )
 body = 1
 barrel = 1
+
+[node name="walls" type="StaticBody2D" parent="." index="2"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 0
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="wall" type="CollisionShape2D" parent="walls" index="0"]
+
+position = Vector2( 516.512, 5.10077 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="wall2" type="CollisionShape2D" parent="walls" index="1"]
+
+position = Vector2( 6.42803, 300.097 )
+rotation = 1.5708
+scale = Vector2( 0.558714, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="wall3" type="CollisionShape2D" parent="walls" index="2"]
+
+position = Vector2( 1023.18, 306.243 )
+rotation = 1.5708
+scale = Vector2( 0.594246, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="wall4" type="CollisionShape2D" parent="walls" index="3"]
+
+position = Vector2( 513.211, 600.811 )
+shape = SubResource( 1 )
 
 
