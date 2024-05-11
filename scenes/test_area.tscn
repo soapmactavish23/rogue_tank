@@ -5,14 +5,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 516.197, 10 )
+extents = Vector2( 474.148, 10 )
 
 [node name="test_area" type="Node"]
 
 [node name="Tank" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 532, 419 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Tank2" parent="." index="1" instance=ExtResource( 1 )]
 
@@ -22,6 +21,7 @@ barrel = 1
 
 [node name="walls" type="StaticBody2D" parent="." index="2"]
 
+position = Vector2( -6.81616, -13.6324 )
 input_pickable = false
 collision_layer = 4
 collision_mask = 0
@@ -33,29 +33,31 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="wall" type="CollisionShape2D" parent="walls" index="0"]
 
-position = Vector2( 516.512, 5.10077 )
+position = Vector2( 550.271, 136.073 )
+scale = Vector2( 0.933128, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="wall2" type="CollisionShape2D" parent="walls" index="1"]
 
-position = Vector2( 6.42803, 300.097 )
+position = Vector2( 99.5832, 327.911 )
 rotation = 1.5708
-scale = Vector2( 0.558714, 1 )
+scale = Vector2( 0.419037, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="wall3" type="CollisionShape2D" parent="walls" index="2"]
 
-position = Vector2( 1023.18, 306.243 )
+position = Vector2( 979.768, 337.906 )
 rotation = 1.5708
-scale = Vector2( 0.594246, 1 )
+scale = Vector2( 0.416174, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="wall4" type="CollisionShape2D" parent="walls" index="3"]
 
-position = Vector2( 513.211, 600.811 )
+position = Vector2( 530.654, 521.288 )
+scale = Vector2( 0.925348, 1 )
 shape = SubResource( 1 )
 
 

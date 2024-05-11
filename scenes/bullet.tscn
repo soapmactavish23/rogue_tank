@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/bullet.gd" type="Script" id=1]
 [ext_resource path="res://sprites/smokeWhite1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/bulletRed1_outline.png" type="Texture" id=3]
+[ext_resource path="res://sprites/explosionSmoke5.png" type="Texture" id=4]
+[ext_resource path="res://sprites/explosionSmoke1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/explosionSmoke2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/explosionSmoke3.png" type="Texture" id=7]
+[ext_resource path="res://sprites/explosionSmoke4.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -74,7 +79,38 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color" ]
 
-[node name="bullet" type="Area2D" groups=[
+[sub_resource type="Animation" id=7]
+
+resource_name = "explode"
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("self_destruction:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("self_destruction:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="bullet" type="Area2D" index="0" groups=[
 "cannon_bullets",
 ]]
 
@@ -131,6 +167,24 @@ _sections_unfolded = [ "Material", "Process Material" ]
 rotation = 1.5708
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="self_destruction" type="Sprite" parent="." index="4"]
+
+visible = false
+position = Vector2( 0.266732, 0.933962 )
+scale = Vector2( 0.480453, 0.556616 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="anim_self_destruction" type="AnimationPlayer" parent="." index="5"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/explode = SubResource( 7 )
+blend_times = [  ]
 
 [connection signal="screen_exited" from="notifier" to="." method="_on_notifier_screen_exited"]
 
