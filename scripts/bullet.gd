@@ -29,7 +29,8 @@ func set_dir(val):
 	pass
 
 func _on_bullet_body_entered( body ):
-	if body.collision_layer == 4:
+	print(body.is_in_group("player"))
+	if body.collision_layer == 13 || body.is_in_group("player"):
 		autodestroy()
 
 func autodestroy():
