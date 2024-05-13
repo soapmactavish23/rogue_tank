@@ -7,14 +7,14 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 98.0966
+radius = 242.538
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24.1721, 24.6992 )
 
-[node name="enemy" type="StaticBody2D" index="0"]
+[node name="enemy" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 9
@@ -34,8 +34,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="area" type="Area2D" parent="." index="1"]
 
-editor/display_folded = true
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
