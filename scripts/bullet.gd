@@ -9,6 +9,7 @@ onready var init_pos = global_position
 var live = true
 
 func _ready():
+	
 	pass
 
 func _process(delta):

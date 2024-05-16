@@ -18,6 +18,7 @@ func _process(delta):
 		if get_tree().get_nodes_in_group(BULLET_TANK_GROUP).size() < 1:
 			var bullet = pre_bullet.instance()
 			bullet.global_position = $barrel/muzzle.global_position
+			$barrel/fx.play()
 			
 			bullet.dir = Vector2(cos(rotation), sin(rotation)).normalized()
 			bullet.add_to_group(BULLET_TANK_GROUP)
