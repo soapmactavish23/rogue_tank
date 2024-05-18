@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/tankBody_green.png" type="Texture" id=2]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=3]
 
-[node name="Tank" type="KinematicBody2D" groups=[
+[node name="Tank" type="KinematicBody2D" index="0" groups=[
 "player",
 ]]
 
