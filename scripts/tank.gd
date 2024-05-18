@@ -6,8 +6,11 @@ const ROT_VEL = PI / 2
 const MAX_SPEED = 150
 
 var acell = 0
-var pre_bullet = preload("res://scenes/bullet.tscn")
+var travel = 0
 var BULLET_TANK_GROUP = "bullet-" + str(self)
+
+var pre_bullet = preload("res://scenes/bullet.tscn")
+var pre_track = preload("res://scenes/track.tscn")
 
 export(int, "green", "bigRed", "blue", "dark", "darkLarge", "huge", "sand") var body = 0 setget set_body
 export(int, "green", "bigRed", "blue", "dark", "darkLarge", "huge", "sand") var barrel = 0 setget set_barrel
@@ -79,7 +82,17 @@ func _physics_process(delta):
 	else:
 		acell = lerp(acell, 0, .05)
 	
-	move_and_slide(Vector2(cos(rotation), sin(rotation)) * dir * acell)
+	var move = move_and_slide(Vector2(cos(rotation), sin(rotation)) * dir * acell)
+	
+	travel += move.length() * delta
+	
+	if travel > $sprite.texture.get_size().y:
+		travel = 0
+		var track = pre_track.instance()
+		track.global_position = global_position - Vector2(cos(rotation), sin(rotation)).normalized() * 5
+		track.rotation = rotation
+		track.z_index = z_index - 1
+		$"../".add_child(track)
 	
 	$barrel.look_at(get_global_mouse_position())
 
