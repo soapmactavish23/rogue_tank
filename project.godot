@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="rogue_tank"
-run/main_scene="res://scenes/test_area.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/icon="res://icon.png"
 
 [display]

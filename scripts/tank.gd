@@ -3,6 +3,9 @@ extends KinematicBody2D
 
 var BULLET_TANK_GROUP = "bullet-" + str(self)
 
+# PI = 180 graus
+const ROT_VEL = PI / 2
+
 var speed = 150
 var pre_bullet = preload("res://scenes/bullet.tscn")
 
@@ -35,43 +38,49 @@ func _draw():
 	$sprite.texture = load(bodies[body])
 	$barrel/sprite.texture = load(barrels[barrel])
 	
-func _process(delta):
+func _physics_process(delta):
 	
 	if Engine.editor_hint:
 		return
 	
-	var dir_x = 0
-	var dir_y = 0
-	
-	if Input.is_action_pressed("ui_right"):
-		dir_x += 1
-	if Input.is_action_pressed("ui_left"):
-		dir_x -= 1
-	if Input.is_action_pressed("ui_up"):
-		dir_y -= 1
-	if Input.is_action_pressed("ui_down"):
-		dir_y += 1
-	
-	if Input.is_action_just_pressed(("ui_shoot")):
+#	var dir_x = 0
+#	var dir_y = 0
+#
+#	if Input.is_action_pressed("ui_right"):
+#		dir_x += 1
+#	if Input.is_action_pressed("ui_left"):
+#		dir_x -= 1
+#	if Input.is_action_pressed("ui_up"):
+#		dir_y -= 1
+#	if Input.is_action_pressed("ui_down"):
+#		dir_y += 1
+#
+#	if Input.is_action_just_pressed(("ui_shoot")):
+#
+#		if get_tree().get_nodes_in_group(BULLET_TANK_GROUP).size() < 6:
+#			var bullet = pre_bullet.instance()
+#			bullet.global_position = $barrel/muzzle.global_position
+#			$barrel/fx.play()
+#
+#			bullet.dir = Vector2(cos(rotation), sin(rotation)).normalized()
+#			bullet.add_to_group(BULLET_TANK_GROUP)
+#			$barrel/anim.play("fire")
+#			get_parent().add_child(bullet)
+#
+#	look_at(get_global_mouse_position())
+#	move_and_slide(Vector2(dir_x, dir_y) * speed)
 
-		if get_tree().get_nodes_in_group(BULLET_TANK_GROUP).size() < 6:
-			var bullet = pre_bullet.instance()
-			bullet.global_position = $barrel/muzzle.global_position
-			$barrel/fx.play()
-			
-			bullet.dir = Vector2(cos(rotation), sin(rotation)).normalized()
-			bullet.add_to_group(BULLET_TANK_GROUP)
-			$barrel/anim.play("fire")
-			get_parent().add_child(bullet)
-			
-			
-			
+	var rot = 0
+
+	if Input.is_action_pressed("ui_right"):
+		rot += 1
+		pass
 		
-	look_at(get_global_mouse_position())
+	if Input.is_action_pressed("ui_left"):
+		rot -= 1
+		pass
 		
-	
-	
-	move_and_slide(Vector2(dir_x, dir_y) * speed)
+	rotate(ROT_VEL * rot * delta)
 
 func set_body(val):
 	body = val
