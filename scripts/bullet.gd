@@ -1,6 +1,6 @@
 extends Area2D
 
-const MAX_DIST = 100
+var max_dist = 250
 
 var vel = 400
 var dir = Vector2(0, -1) setget set_dir
@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	
 	if live:
-		if global_position.distance_to(init_pos) >= MAX_DIST:
+		if global_position.distance_to(init_pos) >= max_dist:
 			autodestroy()
 	
 		translate(dir * vel * delta)
