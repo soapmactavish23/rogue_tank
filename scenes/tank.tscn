@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/tankBody_green.png" type="Texture" id=2]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=3]
 
-[node name="Tank" type="KinematicBody2D" groups=[
+[node name="Tank" type="KinematicBody2D" index="0" groups=[
 "player",
 ]]
 
@@ -33,6 +33,13 @@ polygon = PoolVector2Array( -18, -16, -20, -7, -19, 16, -16, 18, -12, 18, 13, 18
 
 [node name="barrel" parent="." index="2" instance=ExtResource( 3 )]
 
-_sections_unfolded = [ "Transform" ]
+[node name="timer_reload" type="Timer" parent="." index="3"]
+
+process_mode = 0
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="timer_reload" to="." method="_on_timer_reload_timeout"]
 
 
