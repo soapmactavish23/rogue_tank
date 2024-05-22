@@ -46,6 +46,12 @@ func _physics_process(delta):
 	if Engine.editor_hint:
 		return
 		
+	var vel_mod = 1
+	
+	if get_tree().get_nodes_in_group(str(self) + "-oil").size() > 0:
+		vel_mod = .3
+	
+		
 	if Input.is_action_just_pressed(("ui_shoot")):
 		if get_tree().get_nodes_in_group(BULLET_TANK_GROUP).size() < 6:
 			var bullet = pre_bullet.instance()
@@ -82,7 +88,7 @@ func _physics_process(delta):
 	else:
 		acell = lerp(acell, 0, .05)
 	
-	var move = move_and_slide(Vector2(cos(rotation), sin(rotation)) * dir * acell)
+	var move = move_and_slide(Vector2(cos(rotation), sin(rotation)) * dir * acell * vel_mod)
 	
 	travel += move.length() * delta
 	
