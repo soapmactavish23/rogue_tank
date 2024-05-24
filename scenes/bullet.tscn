@@ -110,7 +110,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="bullet" type="Area2D" index="0" groups=[
+[node name="bullet" type="Area2D" groups=[
 "cannon_bullets",
 ]]
 
@@ -121,7 +121,7 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 8
-collision_mask = 7
+collision_mask = 4
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
@@ -187,6 +187,8 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/explode = SubResource( 7 )
 blend_times = [  ]
+
+[connection signal="area_entered" from="." to="." method="_on_bullet_area_entered"]
 
 [connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]
 
