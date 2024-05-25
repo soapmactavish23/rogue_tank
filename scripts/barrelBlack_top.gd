@@ -6,10 +6,7 @@ func _ready():
 	pass
 	
 func on_area_hitted(damage, health, node):
-	if damage > 5:
-		$anim.play("big_hit")
-	else:
-		$anim.play("small_hit")
+	pass
 
 func on_area_destroid():
 	queue_free()

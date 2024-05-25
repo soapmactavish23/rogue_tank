@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tank.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/barricadeMetal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/oilSpill_large.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/crateWood.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/barrelBlack_top.tscn" type="PackedScene" id=11]
 
 [node name="game" type="Node"]
 
@@ -70,5 +71,9 @@ _sections_unfolded = [ "Collision", "Z Index" ]
 
 position = Vector2( 310.619, 195.211 )
 collision_mask = 44
+
+[node name="barrelBlack_top" parent="." index="11" instance=ExtResource( 11 )]
+
+position = Vector2( 200.122, 124.002 )
 
 
