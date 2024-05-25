@@ -2,10 +2,23 @@ extends Area2D
 
 var vel = 400
 var dir = Vector2()
+var damage = 1
 
 onready var initpos = self.global_position
 
 func _physics_process(delta):
 	translate(dir * vel * delta)
 	if global_position.distance_to(initpos) > 150:
-		queue_free()
+		autodestroy()
+
+func _on_mg_bullet_body_entered( body ):
+	autodestroy()
+
+
+func _on_mg_bullet_area_entered( area ):
+	if area.has_method("hit"):
+		area.hit(damage, self)
+		autodestroy()
+
+func autodestroy():
+	queue_free()

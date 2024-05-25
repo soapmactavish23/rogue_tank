@@ -31,6 +31,7 @@ func set_dir(val):
 	pass
 
 func _on_bullet_body_entered( body ):
+	print(body.collision_layer)
 	if body.collision_layer == 13 || body.is_in_group("player"):
 		autodestroy()
 
@@ -47,5 +48,6 @@ func autodestroy():
 	queue_free()
 
 func _on_bullet_area_entered(area):
-    if area.has_method("hit"):
-        area.hit(damage, self)
+	if area.has_method("hit"):
+		area.hit(damage, self)
+		autodestroy()
