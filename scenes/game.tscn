@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/crateWood.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/barrelBlack_top.tscn" type="PackedScene" id=11]
 
-[node name="game" type="Node"]
+[node name="game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

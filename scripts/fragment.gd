@@ -9,3 +9,7 @@ func _ready():
 	angular_velocity = randf() * 1
 	var dir = randf() * (PI * 2)
 	apply_impulse(Vector2(), Vector2(cos(dir), sin(dir)) * 200)
+	$poly.scale = get_parent().scale
+	$poly2.scale = get_parent().scale
+	$poly.rotation = get_parent().rotation
+	$poly2.rotation = get_parent().rotation

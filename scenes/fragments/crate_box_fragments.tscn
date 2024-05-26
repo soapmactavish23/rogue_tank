@@ -1,12 +1,35 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/fragments.gd" type="Script" id=1]
 [ext_resource path="res://scripts/fragment.gd" type="Script" id=2]
 [ext_resource path="res://sprites/crateWood.png" type="Texture" id=3]
+[ext_resource path="res://sprites/explosion1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/explosion2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/explosion3.png" type="Texture" id=6]
+[ext_resource path="res://sprites/explosion4.png" type="Texture" id=7]
+[ext_resource path="res://sprites/explosion5.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "explode"
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ null, ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), null ]
+}
 
 [node name="crate_box_fragments" type="Node2D" index="0"]
 
-position = Vector2( 559.848, 305.707 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -200,5 +223,17 @@ _sections_unfolded = [ "Texture" ]
 build_mode = 0
 polygon = PoolVector2Array( 1.28971, -0.886252, 15.4792, 1.50938, 15.5253, 12.4279, 2.16504, 12.6583, 2.44145, 10.9537, 1.70434, -0.425555 )
 _sections_unfolded = [ "Texture" ]
+
+[node name="anim" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = "explode"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/explode = SubResource( 1 )
+blend_times = [  ]
+
+[node name="sprite" type="Sprite" parent="." index="5"]
 
 
