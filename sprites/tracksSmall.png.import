@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tracksSmall.png-2ee99f8e949b9765e1dfc1e4bdcc382b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/tracksSmall.png"
-source_md5="d3b374b42c8620992b0101d0f9992c2a"
-
 dest_files=[ "res://.import/tracksSmall.png-2ee99f8e949b9765e1dfc1e4bdcc382b.stex" ]
-dest_md5="15b234d1f3907105969532f95f5252d5"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

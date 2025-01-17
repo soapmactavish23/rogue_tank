@@ -7,10 +7,7 @@ path="res://.import/shoot.wav-b0c937b5b6c65b56743a1243fc7a2131.sample"
 [deps]
 
 source_file="res://samples/shoot.wav"
-source_md5="1b3b2f1b264692332b9078dccba6f606"
-
 dest_files=[ "res://.import/shoot.wav-b0c937b5b6c65b56743a1243fc7a2131.sample" ]
-dest_md5="648d18525d7029e7a793e36b627cb4ae"
 
 [params]
 
@@ -20,5 +17,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=true
 edit/normalize=true
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/bulletSand3.png-6855d2fd3673dc1e8e60d4d6aa1773ee.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/bulletSand3.png"
-source_md5="e2ab82e55e6e14d086718c2b541cf76f"
-
 dest_files=[ "res://.import/bulletSand3.png-6855d2fd3673dc1e8e60d4d6aa1773ee.stex" ]
-dest_md5="0389c936d7b10a3fd7e4d2317f1f8c3a"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

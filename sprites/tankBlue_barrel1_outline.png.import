@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tankBlue_barrel1_outline.png-782a1cb90a7330fe2ca870d13ec5c7f7.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/tankBlue_barrel1_outline.png"
-source_md5="143e65e33c734efdd0436d6a3aa022a6"
-
 dest_files=[ "res://.import/tankBlue_barrel1_outline.png-782a1cb90a7330fe2ca870d13ec5c7f7.stex" ]
-dest_md5="ffe22bbe1108f5df91851c5c300fa89c"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

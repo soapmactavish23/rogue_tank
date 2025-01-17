@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tankBody_red.png-f9c5ae9b3248d918e3e0578645e43918.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/tankBody_red.png"
-source_md5="9b93c95adc7dbff1c172d06ea2c55672"
-
 dest_files=[ "res://.import/tankBody_red.png-f9c5ae9b3248d918e3e0578645e43918.stex" ]
-dest_md5="d1f36182106b8c9aae15a62590aa405b"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

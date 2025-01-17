@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/bulletRed1.png-a2715a274685e44a83f32cded4c77ef8.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/bulletRed1.png"
-source_md5="f071fa0d3929b5242893f2729fdef8fb"
-
 dest_files=[ "res://.import/bulletRed1.png-a2715a274685e44a83f32cded4c77ef8.stex" ]
-dest_md5="658a8df34c942820d6a2f10fb2fd9338"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

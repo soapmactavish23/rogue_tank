@@ -13,3 +13,10 @@ func _ready():
 	$poly2.scale = get_parent().scale
 	$poly.rotation = get_parent().rotation
 	$poly2.rotation = get_parent().rotation
+	connect("sleeping_state_changed", self, "on_self_sleeping_state_changed")
+	
+func on_self_sleeping_state_changed():
+	if sleeping:
+		var t = get_tree().create_timer(randf() * 4 + 2)
+		yield(t, "timeout")
+		queue_free()

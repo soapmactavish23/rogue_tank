@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/portal_yellowParticle.png-924a3d70bf5e185b785bb93797af3418.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://particles/portal_yellowParticle.png"
-source_md5="3aa24a0a2b2d69f5b494aa974f64ebec"
-
 dest_files=[ "res://.import/portal_yellowParticle.png-924a3d70bf5e185b785bb93797af3418.stex" ]
-dest_md5="06d4e71038b8d18638bac855e7b9615a"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

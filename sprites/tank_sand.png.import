@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tank_sand.png-99d21616791be25fd89565fb2222cdaf.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/tank_sand.png"
-source_md5="4bbdc587a0363f384c0febd9aae7f0af"
-
 dest_files=[ "res://.import/tank_sand.png-99d21616791be25fd89565fb2222cdaf.stex" ]
-dest_md5="1183f0bc77aa17b27b9e67cacac99a2f"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tank_darkLarge.png-c7df0be10077f73ed02ced92cfc8205e.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/tank_darkLarge.png"
-source_md5="42dab15e66569f2b3a6b9f017f78b07f"
-
 dest_files=[ "res://.import/tank_darkLarge.png-c7df0be10077f73ed02ced92cfc8205e.stex" ]
-dest_md5="0ecfba72eacf523711f9969c35b2024d"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

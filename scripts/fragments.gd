@@ -2,10 +2,9 @@ extends Node2D
 
 
 func _ready():
-	randomize()
-	pass
+	for c in get_children():
+		c.connect("tree_exited", self, "on_fragment_tree_exited")
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func on_fragment_tree_exited():
+	if(get_child_count() <= 3):
+		queue_free()

@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/oilSpill_large.png-57a0fe48ae5577b243dadb9e33d213f7.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/oilSpill_large.png"
-source_md5="452a2eae1915b7145da7102d54789904"
-
 dest_files=[ "res://.import/oilSpill_large.png-57a0fe48ae5577b243dadb9e33d213f7.stex" ]
-dest_md5="d06bae49f28d0c1d27e45bfb93fa665e"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

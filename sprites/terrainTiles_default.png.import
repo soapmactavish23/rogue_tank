@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/terrainTiles_default.png-ca7e84ffd4a9f798e11b3e84dbed50e6.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/terrainTiles_default.png"
-source_md5="013601f91db2e7987de94b76c8e9cd2f"
-
 dest_files=[ "res://.import/terrainTiles_default.png-ca7e84ffd4a9f798e11b3e84dbed50e6.stex" ]
-dest_md5="cfa56a54b8de310ad15f142393a72410"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

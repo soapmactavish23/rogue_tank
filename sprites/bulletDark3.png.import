@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/bulletDark3.png-cf43d6b491a00211d0fb9338c9159c45.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/bulletDark3.png"
-source_md5="4a1b65823d5d418e745af6fefbd43017"
-
 dest_files=[ "res://.import/bulletDark3.png-cf43d6b491a00211d0fb9338c9159c45.stex" ]
-dest_md5="98a298e43cf80146c8c1c5905463acbf"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

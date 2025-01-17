@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/shotOrange.png-028fa8ea00957f82b79a27382d4768c0.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/shotOrange.png"
-source_md5="a0a3452adbe9c580385a611b6cf1d20d"
-
 dest_files=[ "res://.import/shotOrange.png-028fa8ea00957f82b79a27382d4768c0.stex" ]
-dest_md5="adda57e22a465f0f96e65ad24bd360b0"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/explosionSmoke3.png-abf55bf5c59d81ce1c7a430264fe09e7.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/explosionSmoke3.png"
-source_md5="2894ab9a8601ec0aac48d23043d306fe"
-
 dest_files=[ "res://.import/explosionSmoke3.png-abf55bf5c59d81ce1c7a430264fe09e7.stex" ]
-dest_md5="7d088162138bcc6f09b5f2d6e893190a"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

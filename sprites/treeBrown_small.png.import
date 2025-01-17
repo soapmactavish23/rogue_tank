@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/treeBrown_small.png-808eff025eb842ed78cc91c830eed19c.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://sprites/treeBrown_small.png"
-source_md5="c1402cc0fc106977ba623c520a553088"
-
 dest_files=[ "res://.import/treeBrown_small.png-808eff025eb842ed78cc91c830eed19c.stex" ]
-dest_md5="1e0598f25f85a4050fa457fc90486d66"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,8 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
