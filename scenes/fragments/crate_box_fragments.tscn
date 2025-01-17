@@ -83,3 +83,4 @@ autoplay = "explode"
 anims/explode = SubResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
