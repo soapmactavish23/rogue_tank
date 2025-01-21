@@ -8,7 +8,14 @@ func _ready():
 	pass
 	
 func on_area_hitted(damage, health, node):
-	pass
+	if health > 0:
+		if damage > 5:
+			$big_hit.play()
+		else:
+			var hit_sound = "small_hit_0" + str(randi() % 5 + 1)
+			get_node(hit_sound).play()
+	else:
+		$explosion.play()
 
 func on_area_destroid():
 	
