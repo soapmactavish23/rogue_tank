@@ -98,11 +98,10 @@ func _physics_process(delta):
 		
 	rotate(ROT_VEL * rot * delta)
 	
-	
-	if dir != 0:
-		acell = lerp(acell, MAX_SPEED, .01)
-	else:
-		acell = lerp(acell, 0, .05)
+	#if dir != 0:
+	acell = lerp(acell, MAX_SPEED * dir, .03)
+	#else:
+	#	acell = lerp(acell, 0, .05)
 	
 	var move = move_and_slide(Vector2(cos(rotation), sin(rotation)) * dir * acell * vel_mod)
 	
