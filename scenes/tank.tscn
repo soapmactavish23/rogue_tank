@@ -1,67 +1,83 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/tank.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tankBody_bigRed.png" type="Texture" id=2]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/specialBarrel4.png" type="Texture" id=4]
+[ext_resource path="res://samples/tank_cannon.wav" type="AudioStream" id=5]
+[ext_resource path="res://samples/disparo_hmg_tank.wav" type="AudioStream" id=6]
+[ext_resource path="res://samples/reload.wav" type="AudioStream" id=7]
 
-[node name="Tank" type="KinematicBody2D" groups=[
-"player",
-]]
+[sub_resource type="GDScript" id=1]
+resource_name = "tank_samples"
+script/source = "extends Node2D
 
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$'../'.connect(\"cannon_shooted\", self, \"on_tank_cannon_shooted\")
+	$'../'.connect(\"hmg_shooted\", self, \"on_tank_hmg_shooted\")
+	pass
+
+
+func on_tank_cannon_shooted():
+	$cannon.play()
+	yield($cannon, \"finished\")
+	$reload.play()
+
+func on_tank_hmg_shooted():
+	$hmg.play()
+"
+
+[node name="Tank" type="KinematicBody2D" groups=["player"]]
 position = Vector2( 0, -0.214638 )
 z_index = 20
-input_pickable = false
-collision_layer = 1
 collision_mask = 5
-collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 body = 1
-barrel = 0
 
-[node name="sprite" type="Sprite" parent="." index="0"]
-
+[node name="sprite" type="Sprite" parent="."]
 rotation = 1.5708
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="poly" type="CollisionPolygon2D" parent="." index="1"]
-
+[node name="poly" type="CollisionPolygon2D" parent="."]
 visible = false
-build_mode = 0
 polygon = PoolVector2Array( -18, -16, -20, -7, -19, 16, -16, 18, -12, 18, 13, 18, 18, 15, 19, -12, 12, -18, -12, -18 )
 
-[node name="barrel" parent="." index="2" instance=ExtResource( 3 )]
+[node name="barrel" parent="." instance=ExtResource( 3 )]
 
-[node name="timer_reload" type="Timer" parent="." index="3"]
-
+[node name="timer_reload" type="Timer" parent="."]
 process_mode = 0
-wait_time = 1.0
 one_shot = true
-autostart = false
 
-[node name="mg" type="Sprite" parent="." index="4"]
-
+[node name="mg" type="Sprite" parent="."]
 position = Vector2( 23.2511, 13.901 )
 rotation = -1.5708
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="mg_muzzle" type="Position2D" parent="." index="5"]
-
+[node name="mg_muzzle" type="Position2D" parent="."]
 position = Vector2( 36.2892, 14.8313 )
 
-[node name="timer_mg" type="Timer" parent="." index="6"]
-
-process_mode = 1
+[node name="timer_mg" type="Timer" parent="."]
 wait_time = 0.1
-one_shot = false
-autostart = false
+
+[node name="samples" type="Node2D" parent="."]
+script = SubResource( 1 )
+
+[node name="cannon" type="AudioStreamPlayer2D" parent="samples"]
+stream = ExtResource( 5 )
+
+[node name="hmg" type="AudioStreamPlayer2D" parent="samples"]
+stream = ExtResource( 6 )
+
+[node name="reload" type="AudioStreamPlayer2D" parent="samples"]
+stream = ExtResource( 7 )
 
 [connection signal="timeout" from="timer_reload" to="." method="_on_timer_reload_timeout"]
-
 [connection signal="timeout" from="timer_mg" to="." method="_on_timer_mg_timeout"]
-
-

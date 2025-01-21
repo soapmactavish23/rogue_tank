@@ -14,6 +14,9 @@ var pre_bullet = preload("res://scenes/bullet.tscn")
 var pre_track = preload("res://scenes/track.tscn")
 var pre_mg_bullet = preload("res://scenes/mg_bullet.tscn")
 
+signal cannon_shooted
+signal hmg_shooted
+
 export(int, "green", "bigRed", "blue", "dark", "darkLarge", "huge", "sand") var body = 0 setget set_body
 export(int, "green", "bigRed", "blue", "dark", "darkLarge", "huge", "sand") var barrel = 0 setget set_barrel
 
@@ -57,7 +60,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(("ui_shoot")) and loaded:
 		var bullet = pre_bullet.instance()
 		bullet.global_position = $barrel/muzzle.global_position
-		$barrel/fx.play()
 
 		bullet.dir = Vector2(cos($barrel.global_rotation), sin($barrel.global_rotation)).normalized()
 		bullet.add_to_group(BULLET_TANK_GROUP)
@@ -68,6 +70,8 @@ func _physics_process(delta):
 		$barrel/sight.update()
 		$timer_reload.start()
 		$barrel/barrel_anim.play("shoot")
+		#$smp_cannon.play()
+		emit_signal("cannon_shooted")
 	
 	if Input.is_action_just_pressed("machine_gun"):
 		$timer_mg.start()
@@ -134,6 +138,8 @@ func shoot_mg():
 	mg.global_rotation = global_rotation
 	mg.dir = Vector2(cos(global_rotation), sin(global_rotation)).normalized()
 	get_parent().add_child(mg)
+	#$smp_hmg.play()
+	emit_signal("hmg_shooted")
 
 func _on_timer_mg_timeout():
 	shoot_mg()

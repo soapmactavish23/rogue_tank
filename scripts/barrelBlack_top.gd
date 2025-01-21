@@ -18,6 +18,7 @@ func on_area_destroid():
 		var oil = PRE_OIL.instance()
 		var angle = randf() * (PI * 2)
 		oil.global_position = global_position + Vector2(cos(angle), sin(angle)).normalized() * rand_range(30, 60)
+		oil.z_index = z_index + 1
 		$'../'.add_child(oil)
 	
 	$area_obastacle.queue_free()
