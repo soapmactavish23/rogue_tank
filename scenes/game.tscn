@@ -1,14 +1,23 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tank.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resource/tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://scenes/wind.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/enemies/towerDefense_tile226.png" type="Texture" id=5]
 [ext_resource path="res://scenes/treeGreen_large.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/enemies/towerDefense_tile250.png" type="Texture" id=7]
 [ext_resource path="res://scenes/barricadeMetal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/oilSpill_large.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/crateWood.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/barrelBlack_top.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/turret_01.gd" type="Script" id=12]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 23.2099
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 101.383
 
 [node name="game" type="Node"]
 script = ExtResource( 1 )
@@ -51,4 +60,37 @@ position = Vector2( 483, 428 )
 collision_mask = 44
 
 [node name="barrelBlack_top" parent="." instance=ExtResource( 11 )]
-position = Vector2( 177, 131 )
+position = Vector2( 215.767, 511.908 )
+
+[node name="turret_01" type="StaticBody2D" parent="."]
+position = Vector2( 261.267, 193.504 )
+collision_layer = 10
+collision_mask = 9
+script = ExtResource( 12 )
+
+[node name="sprite" type="Sprite" parent="turret_01"]
+texture = ExtResource( 5 )
+
+[node name="poly" type="CollisionPolygon2D" parent="turret_01"]
+polygon = PoolVector2Array( -10.5079, -22.6941, -11.1032, -13.765, -18.4449, -13.9634, -19.0402, 6.67283, -11.3016, 13.4193, -10.9047, 22.7453, 9.92992, 22.5468, 10.5252, 13.2209, 19.2559, 5.48228, 19.0575, -14.1618, 11.9142, -15.1539, 9.73149, -22.6941 )
+
+[node name="cannon" type="Area2D" parent="turret_01"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="sprite" type="Sprite" parent="turret_01/cannon"]
+rotation = 1.5708
+texture = ExtResource( 7 )
+offset = Vector2( -0.160278, -11.3925 )
+
+[node name="shape" type="CollisionShape2D" parent="turret_01/cannon"]
+shape = SubResource( 1 )
+
+[node name="sensor" type="Area2D" parent="turret_01"]
+collision_layer = 0
+
+[node name="shape" type="CollisionShape2D" parent="turret_01/sensor"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="turret_01/sensor" to="turret_01" method="_on_sensor_body_entered"]
+[connection signal="body_exited" from="turret_01/sensor" to="turret_01" method="_on_sensor_body_exited"]
