@@ -17,7 +17,7 @@
 radius = 23.2099
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 101.383
+radius = 195.582
 
 [node name="game" type="Node"]
 script = ExtResource( 1 )
@@ -60,10 +60,10 @@ position = Vector2( 483, 428 )
 collision_mask = 44
 
 [node name="barrelBlack_top" parent="." instance=ExtResource( 11 )]
-position = Vector2( 215.767, 511.908 )
+position = Vector2( 355.46, 136.246 )
 
 [node name="turret_01" type="StaticBody2D" parent="."]
-position = Vector2( 261.267, 193.504 )
+position = Vector2( 278.257, 419.09 )
 collision_layer = 10
 collision_mask = 9
 script = ExtResource( 12 )
@@ -86,6 +86,10 @@ offset = Vector2( -0.160278, -11.3925 )
 [node name="shape" type="CollisionShape2D" parent="turret_01/cannon"]
 shape = SubResource( 1 )
 
+[node name="sight" type="RayCast2D" parent="turret_01/cannon"]
+enabled = true
+cast_to = Vector2( 200, 0 )
+
 [node name="sensor" type="Area2D" parent="turret_01"]
 position = Vector2( 0, 0.25 )
 collision_layer = 0
@@ -95,7 +99,6 @@ shape = SubResource( 2 )
 
 [node name="shoot_timer" type="Timer" parent="turret_01"]
 wait_time = 0.3
-autostart = true
 
 [connection signal="body_entered" from="turret_01/sensor" to="turret_01" method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="turret_01/sensor" to="turret_01" method="_on_sensor_body_exited"]
