@@ -10,8 +10,8 @@ func _process(delta):
 		var angle = $cannon.get_angle_to(bodies[0].global_position)
 		if abs(angle) > .1:
 			$cannon.rotation += rot_vel * delta * sign(angle)
-	if $cannon/sight.is_colliding():
-		if $cannon.get_collider() != bodies[0]:
+	if $cannon/sight.is_colliding() && bodies.size() > 0:
+		if $cannon/sight.get_collider() != bodies[0]:
 			var oldBody = bodies[0]
 			var newBodyIndex = bodies.find($cannon/sight.get_collider())
 			bodies[0] = $cannon/sight.get_collider()
@@ -36,7 +36,11 @@ func _on_sensor_body_exited(body):
 
 func _on_shoot_timer_timeout():
 	if $cannon/sight.is_colliding():
-		var bullet = PRE_BULLET.instance()
-		bullet.global_position = global_position
-		bullet.dir = Vector2(cos($cannon.rotation), sin($cannon.rotation))
-		get_parent().add_child(bullet)
+		shoot()
+		
+func shoot():
+	$cannon_anim.play("shoot")
+	var bullet = PRE_BULLET.instance()
+	bullet.global_position = global_position
+	bullet.dir = Vector2(cos($cannon.rotation), sin($cannon.rotation))
+	get_parent().add_child(bullet)
