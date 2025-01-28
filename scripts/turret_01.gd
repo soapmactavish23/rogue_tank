@@ -32,14 +32,19 @@ func _on_sensor_body_exited(body):
 	if !bodies.size():
 		$cannon/sight.enabled = false
 		$shoot_timer.stop()
+		$cannon/smoke.emitting = false
 
 
 func _on_shoot_timer_timeout():
 	if $cannon/sight.is_colliding():
 		shoot()
+	else: 
+		$cannon/smoke.emitting = false
 		
 func shoot():
+	$cannon/smoke.emitting = true
 	$cannon_anim.play("shoot")
+	$stream_shoot.play()
 	var bullet = PRE_BULLET.instance()
 	bullet.global_position = global_position
 	bullet.dir = Vector2(cos($cannon.rotation), sin($cannon.rotation))

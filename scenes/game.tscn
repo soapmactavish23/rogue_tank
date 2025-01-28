@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tank.tscn" type="PackedScene" id=2]
@@ -13,9 +13,35 @@
 [ext_resource path="res://scenes/barrelBlack_top.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/turret_01.gd" type="Script" id=12]
 [ext_resource path="res://sprites/enemies/towerDefense_tile298.png" type="Texture" id=13]
+[ext_resource path="res://samples/projectil_hit.wav" type="AudioStream" id=14]
+[ext_resource path="res://sprites/smokeWhite1.png" type="Texture" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.2099
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.993548, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.3 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 195.582
@@ -243,6 +269,14 @@ position = Vector2( 50.3124, 6.47028 )
 rotation = 1.5708
 texture = ExtResource( 13 )
 
+[node name="smoke" type="Particles2D" parent="turret_01/cannon"]
+position = Vector2( 29.7302, 0 )
+emitting = false
+amount = 4
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 15 )
+
 [node name="sensor" type="Area2D" parent="turret_01"]
 position = Vector2( 0, 0.25 )
 collision_layer = 0
@@ -257,6 +291,9 @@ wait_time = 0.5
 autoplay = "shoot"
 anims/RESET = SubResource( 3 )
 anims/shoot = SubResource( 4 )
+
+[node name="stream_shoot" type="AudioStreamPlayer" parent="turret_01"]
+stream = ExtResource( 14 )
 
 [connection signal="body_entered" from="turret_01/sensor" to="turret_01" method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="turret_01/sensor" to="turret_01" method="_on_sensor_body_exited"]
