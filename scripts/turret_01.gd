@@ -10,11 +10,14 @@ export(float, 100, 1000) var sensor_radius = 0.0 setget set_sensor_radius
 const PRE_BULLET = preload("res://scenes/turrent_01_bullet.tscn")
 
 var first_draw = false
+export var life = 100
+
+var dead = false
 
 func _process(delta):
 	if bodies.size():
 		var angle = $cannon.get_angle_to(bodies[0].global_position)
-		if abs(angle) > .1:
+		if abs(angle) > .01:
 			$cannon.rotation += rot_vel * delta * sign(angle)
 	if $cannon/sight.is_colliding() && bodies.size() > 0:
 		if $cannon/sight.get_collider() != bodies[0]:
@@ -43,6 +46,8 @@ func _on_sensor_body_exited(body):
 	update()
 
 func _draw():
+	if dead:
+		return
 	if !first_draw:
 		$cannon.rotation = deg2rad(start_rot)
 		
@@ -93,3 +98,16 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 		
 	for index_point in range(nb_points):
 		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
+
+
+func _on_wake_spot_damage(damage, node):
+	life -= damage
+	if life <= 0:
+		set_process(false)
+		$cannon.queue_free()
+		$sensor.disconnect("body_exited", self, "_on_sensor_body_exited")
+		$sensor.queue_free()
+		$shoot_timer.queue_free()
+		$wake_spot.queue_free()
+		dead = true
+		update()

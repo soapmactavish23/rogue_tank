@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/turret_01.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/towerDefense_tile298.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://samples/projectil_hit.wav" type="AudioStream" id=4]
 [ext_resource path="res://sprites/enemies/towerDefense_tile226.png" type="Texture" id=5]
 [ext_resource path="res://sprites/smokeWhite1.png" type="Texture" id=6]
+[ext_resource path="res://scripts/wake_spot.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.2099
@@ -34,8 +35,8 @@ scale = 0.5
 scale_curve = SubResource( 9 )
 color_ramp = SubResource( 7 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 195.582
+[sub_resource type="CircleShape2D" id=12]
+radius = 100.0
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -176,10 +177,14 @@ tracks/4/keys = {
 "values": [ Vector2( 50.3124, 6.47028 ) ]
 }
 
+[sub_resource type="CircleShape2D" id=11]
+radius = 24.0995
+
 [node name="turret_01" type="StaticBody2D"]
 collision_layer = 10
 collision_mask = 9
 script = ExtResource( 1 )
+sensor_radius = 100.0
 
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
@@ -202,7 +207,7 @@ shape = SubResource( 1 )
 
 [node name="sight" type="RayCast2D" parent="cannon"]
 enabled = true
-cast_to = Vector2( 200, 0 )
+cast_to = Vector2( 100, 0 )
 
 [node name="fire" type="Node2D" parent="cannon"]
 
@@ -229,7 +234,7 @@ position = Vector2( 0, 0.25 )
 collision_layer = 0
 
 [node name="shape" type="CollisionShape2D" parent="sensor"]
-shape = SubResource( 2 )
+shape = SubResource( 12 )
 
 [node name="shoot_timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -242,6 +247,15 @@ anims/shoot = SubResource( 4 )
 [node name="stream_shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
+[node name="wake_spot" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource( 7 )
+
+[node name="shape" type="CollisionShape2D" parent="wake_spot"]
+shape = SubResource( 11 )
+
 [connection signal="body_entered" from="sensor" to="." method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="sensor" to="." method="_on_sensor_body_exited"]
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="damage" from="wake_spot" to="." method="_on_wake_spot_damage"]

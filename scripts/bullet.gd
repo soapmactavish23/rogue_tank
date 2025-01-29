@@ -10,16 +10,15 @@ onready var init_pos = global_position
 var live = true
 
 func _ready():
-	
 	pass
 
 func _process(delta):
-	
 	if live:
 		if global_position.distance_to(init_pos) >= max_dist:
 			autodestroy()
-	
 		translate(dir * vel * delta)
+	else:
+		vel = 0
 
 func _on_notifier_screen_exited():
 	queue_free()
@@ -41,13 +40,12 @@ func autodestroy():
 	$sprite.visible = false
 	$anim_self_destruction.play("explode")
 	call_deferred("set_monitoring", false)
-	#monitoring = false
 	call_deferred("set_monitorable", false)
-	#monitorable = false
 	yield($anim_self_destruction, "animation_finished")
 	queue_free()
 
 func _on_bullet_area_entered(area):
+	print('aqui')
 	if area.has_method("hit"):
 		area.hit(damage, self)
 		autodestroy()
