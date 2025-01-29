@@ -5,6 +5,7 @@ var bodies = []
 var rot_vel = PI * .2
 
 export(float, 0, 360) var start_rot = 0.0 setget set_start_rot
+export(float, 100, 1000) var sensor_radius = 0.0 setget set_sensor_radius
 
 const PRE_BULLET = preload("res://scenes/turrent_01_bullet.tscn")
 
@@ -44,7 +45,14 @@ func _on_sensor_body_exited(body):
 func _draw():
 	if !first_draw:
 		$cannon.rotation = deg2rad(start_rot)
-		first_draw = false
+		
+		var new_shape = CircleShape2D.new()
+		new_shape.radius = sensor_radius
+		$sensor/shape.shape = new_shape
+		$cannon/sight.cast_to = Vector2(sensor_radius, 0)
+		
+		if !Engine.editor_hint:
+			first_draw = false
 	if bodies.size():
 		draw_circle(Vector2(), $sensor/shape.shape.radius, Color(1, 0, 0, .1))
 	draw_circle_arc(Vector2(), $sensor/shape.shape.radius, 0, 360, Color(1, 0, 0, .5))
@@ -62,10 +70,16 @@ func shoot():
 	var bullet = PRE_BULLET.instance()
 	bullet.global_position = global_position
 	bullet.dir = Vector2(cos($cannon.rotation), sin($cannon.rotation))
+	bullet.max_dist = sensor_radius
 	get_parent().add_child(bullet)
 	
 func set_start_rot(val):
 	start_rot = val
+	if Engine.editor_hint:
+		update()
+
+func set_sensor_radius(val):
+	sensor_radius = val
 	if Engine.editor_hint:
 		update()
 
@@ -79,5 +93,3 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 		
 	for index_point in range(nb_points):
 		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
-		
-		
