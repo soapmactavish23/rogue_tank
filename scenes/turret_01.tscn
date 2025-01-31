@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/turret_01.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/towerDefense_tile298.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://sprites/explosion3.png" type="Texture" id=13]
 [ext_resource path="res://sprites/enemies/towerDefense_tile019.png" type="Texture" id=14]
 [ext_resource path="res://sprites/enemies/towerDefense_tile020.png" type="Texture" id=15]
+[ext_resource path="res://samples/tank_explosion.wav" type="AudioStream" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.2099
@@ -354,9 +355,6 @@ autoplay = "shoot"
 anims/RESET = SubResource( 3 )
 anims/shoot = SubResource( 4 )
 
-[node name="stream_shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-
 [node name="wake_spot" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 0
@@ -364,9 +362,6 @@ script = ExtResource( 7 )
 
 [node name="shape" type="CollisionShape2D" parent="wake_spot"]
 shape = SubResource( 11 )
-
-[node name="stream_hit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
 
 [node name="soot" type="Sprite" parent="."]
 visible = false
@@ -385,6 +380,17 @@ texture = ExtResource( 9 )
 [node name="anim" type="AnimationPlayer" parent="explosion"]
 anims/RESET = SubResource( 13 )
 anims/explode = SubResource( 14 )
+
+[node name="stream" type="Node" parent="."]
+
+[node name="stream_shoot" type="AudioStreamPlayer" parent="stream"]
+stream = ExtResource( 4 )
+
+[node name="stream_hit" type="AudioStreamPlayer2D" parent="stream"]
+stream = ExtResource( 4 )
+
+[node name="stream_explosion" type="AudioStreamPlayer2D" parent="stream"]
+stream = ExtResource( 16 )
 
 [connection signal="body_entered" from="sensor" to="." method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="sensor" to="." method="_on_sensor_body_exited"]

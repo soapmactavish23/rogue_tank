@@ -71,7 +71,7 @@ func _on_shoot_timer_timeout():
 func shoot():
 	$cannon/smoke.emitting = true
 	$cannon_anim.play("shoot")
-	$stream_shoot.play()
+	$stream/stream_shoot.play()
 	var bullet = PRE_BULLET.instance()
 	bullet.global_position = global_position
 	bullet.dir = Vector2(cos($cannon.rotation), sin($cannon.rotation))
@@ -102,7 +102,7 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 
 func _on_wake_spot_damage(damage, node):
 	life -= damage
-	$stream_hit.play()
+	$stream/stream_hit.play()
 	if life <= 0:
 		set_process(false)
 		$cannon.queue_free()
@@ -113,3 +113,5 @@ func _on_wake_spot_damage(damage, node):
 		dead = true
 		update()
 		$explosion/anim.play("explode")
+		$stream/stream_explosion.play()
+		get_tree().call_group("camera", "shake", 5, 1)
