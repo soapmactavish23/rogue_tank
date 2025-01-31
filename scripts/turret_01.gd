@@ -102,6 +102,7 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 
 func _on_wake_spot_damage(damage, node):
 	life -= damage
+	$stream_hit.play()
 	if life <= 0:
 		set_process(false)
 		$cannon.queue_free()
@@ -111,3 +112,4 @@ func _on_wake_spot_damage(damage, node):
 		$wake_spot.queue_free()
 		dead = true
 		update()
+		$explosion/anim.play("explode")

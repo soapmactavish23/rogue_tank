@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/turret_01.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/towerDefense_tile298.png" type="Texture" id=2]
@@ -7,6 +7,14 @@
 [ext_resource path="res://sprites/enemies/towerDefense_tile226.png" type="Texture" id=5]
 [ext_resource path="res://sprites/smokeWhite1.png" type="Texture" id=6]
 [ext_resource path="res://scripts/wake_spot.gd" type="Script" id=7]
+[ext_resource path="res://sprites/explosion5.png" type="Texture" id=8]
+[ext_resource path="res://sprites/explosionSmoke1.png" type="Texture" id=9]
+[ext_resource path="res://sprites/explosion1.png" type="Texture" id=10]
+[ext_resource path="res://sprites/explosion2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/explosion4.png" type="Texture" id=12]
+[ext_resource path="res://sprites/explosion3.png" type="Texture" id=13]
+[ext_resource path="res://sprites/enemies/towerDefense_tile019.png" type="Texture" id=14]
+[ext_resource path="res://sprites/enemies/towerDefense_tile020.png" type="Texture" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.2099
@@ -35,7 +43,7 @@ scale = 0.5
 scale_curve = SubResource( 9 )
 color_ramp = SubResource( 7 )
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=15]
 radius = 100.0
 
 [sub_resource type="Animation" id=3]
@@ -180,6 +188,108 @@ tracks/4/keys = {
 [sub_resource type="CircleShape2D" id=11]
 radius = 24.0995
 
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../soot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.08346, 2.08346 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../soot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
 [node name="turret_01" type="StaticBody2D"]
 collision_layer = 10
 collision_mask = 9
@@ -234,7 +344,7 @@ position = Vector2( 0, 0.25 )
 collision_layer = 0
 
 [node name="shape" type="CollisionShape2D" parent="sensor"]
-shape = SubResource( 12 )
+shape = SubResource( 15 )
 
 [node name="shoot_timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -254,6 +364,27 @@ script = ExtResource( 7 )
 
 [node name="shape" type="CollisionShape2D" parent="wake_spot"]
 shape = SubResource( 11 )
+
+[node name="stream_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="soot" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 14 )
+
+[node name="TowerDefenseTile020" type="Sprite" parent="soot"]
+texture = ExtResource( 15 )
+
+[node name="explosion" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite" parent="explosion"]
+visible = false
+position = Vector2( -0.53364, 0.499994 )
+texture = ExtResource( 9 )
+
+[node name="anim" type="AnimationPlayer" parent="explosion"]
+anims/RESET = SubResource( 13 )
+anims/explode = SubResource( 14 )
 
 [connection signal="body_entered" from="sensor" to="." method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="sensor" to="." method="_on_sensor_body_exited"]
