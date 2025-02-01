@@ -12,6 +12,8 @@ const PRE_BULLET = preload("res://scenes/turrent_01_bullet.tscn")
 var first_draw = false
 export var life = 100
 
+onready var init_life = life
+
 var dead = false
 
 func _process(delta):
@@ -103,6 +105,7 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 func _on_wake_spot_damage(damage, node):
 	life -= damage
 	$stream/stream_hit.play()
+	$hp_bar.scale = float(life) / float(init_life)
 	if life <= 0:
 		set_process(false)
 		$cannon.queue_free()
@@ -110,6 +113,7 @@ func _on_wake_spot_damage(damage, node):
 		$sensor.queue_free()
 		$shoot_timer.queue_free()
 		$wake_spot.queue_free()
+		$hp_bar.queue_free()
 		dead = true
 		update()
 		$explosion/anim.play("explode")
