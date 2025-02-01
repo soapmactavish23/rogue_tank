@@ -17,4 +17,5 @@ func on_area_destroid():
 	var fragments = PRE_FRAGMENTS.instance()
 	fragments.global_position = global_position
 	get_parent().add_child(fragments)
+	GAME.add_score(50)
 	queue_free()

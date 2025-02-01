@@ -32,5 +32,5 @@ func on_area_destroid():
 	$shape.queue_free()
 	$anim.play("explode")
 	yield($anim, "animation_finished")
-	
+	GAME.add_score(100)
 	queue_free()
