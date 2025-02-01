@@ -13,6 +13,7 @@ var first_draw = false
 export var life = 100
 
 onready var init_life = life
+onready var game = get_node('/root/GAME')
 
 var dead = false
 
@@ -119,3 +120,4 @@ func _on_wake_spot_damage(damage, node):
 		$explosion/anim.play("explode")
 		$stream/stream_explosion.play()
 		get_tree().call_group("camera", "shake", 5, 1)
+		GAME.add_score(250)
