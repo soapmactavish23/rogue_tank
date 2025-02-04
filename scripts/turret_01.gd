@@ -120,4 +120,5 @@ func _on_wake_spot_damage(damage, node):
 		$explosion/anim.play("explode")
 		$stream/stream_explosion.play()
 		get_tree().call_group("camera", "shake", 5, 1)
+		remove_from_group("radar_entity")
 		GAME.add_score(250)

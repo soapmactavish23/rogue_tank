@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resource/fonts/Zone99.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/tank.tscn" type="PackedScene" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://scenes/oilSpill_large.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/crateWood.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/barrelBlack_top.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/radar_square.gd" type="Script" id=12]
+[ext_resource path="res://scenes/radar_square.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/radar_square_tilemap_calc.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -31,7 +32,7 @@ position = Vector2( 50, 128 )
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 1920
+limit_right = 2048
 limit_bottom = 0
 script = ExtResource( 4 )
 
@@ -66,6 +67,18 @@ life = 30
 [node name="turret_02" parent="." instance=ExtResource( 5 )]
 position = Vector2( 283.217, 444.14 )
 
+[node name="turret_04" parent="." instance=ExtResource( 5 )]
+position = Vector2( 810.774, 55.7682 )
+
+[node name="turret_05" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1033.02, 448.63 )
+
+[node name="turret_06" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1612.21, 432.915 )
+
+[node name="turret_07" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1147.51, 632.714 )
+
 [node name="turret_03" parent="." instance=ExtResource( 5 )]
 position = Vector2( 665.054, 570.005 )
 
@@ -82,14 +95,11 @@ text = "1231231231"
 align = 1
 valign = 1
 
-[node name="radar_square" type="ColorRect" parent="HUD"]
-margin_left = 798.0
-margin_top = 492.0
-margin_right = 1013.0
-margin_bottom = 632.0
-color = Color( 0.952941, 0.533333, 0.403922, 0.603922 )
-script = ExtResource( 12 )
+[node name="radar_square" parent="HUD" instance=ExtResource( 12 )]
+margin_left = 787.968
+margin_top = 487.148
+margin_right = 1002.97
+margin_bottom = 627.148
+area_size = Vector2( 0, 0 )
 
-[node name="timer_update" type="Timer" parent="HUD/radar_square"]
-
-[connection signal="timeout" from="HUD/radar_square/timer_update" to="HUD/radar_square" method="_on_timer_update_timeout"]
+[node name="radar_square_tilemap_calc" parent="HUD/radar_square" instance=ExtResource( 13 )]
