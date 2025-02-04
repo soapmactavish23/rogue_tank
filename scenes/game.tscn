@@ -97,6 +97,11 @@ valign = 1
 [node name="radar_circle" type="Node2D" parent="HUD"]
 position = Vector2( 875.647, 530.512 )
 script = ExtResource( 12 )
-sensor_radius = 500
 radius = 100.0
 tank = NodePath("../../Tank")
+
+[node name="timer_update" type="Timer" parent="HUD/radar_circle"]
+wait_time = 0.33
+autostart = true
+
+[connection signal="timeout" from="HUD/radar_circle/timer_update" to="HUD/radar_circle" method="_on_timer_update_timeout"]
