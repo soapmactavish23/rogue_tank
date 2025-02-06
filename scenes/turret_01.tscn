@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/turret_01.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/towerDefense_tile298.png" type="Texture" id=2]
@@ -17,36 +17,7 @@
 [ext_resource path="res://sprites/enemies/towerDefense_tile020.png" type="Texture" id=15]
 [ext_resource path="res://samples/tank_explosion.wav" type="AudioStream" id=16]
 [ext_resource path="res://scenes/hp_bar.tscn" type="PackedScene" id=17]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 23.2099
-
-[sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0, 0.993548, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1 )
-
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
-
-[sub_resource type="Curve" id=8]
-_data = [ Vector2( 0, 0.3 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=9]
-curve = SubResource( 8 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 50.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.5
-scale_curve = SubResource( 9 )
-color_ramp = SubResource( 7 )
-
-[sub_resource type="CircleShape2D" id=15]
-radius = 100.0
+[ext_resource path="res://cannon.gd" type="Script" id=18]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -187,6 +158,36 @@ tracks/4/keys = {
 "values": [ Vector2( 50.3124, 6.47028 ) ]
 }
 
+[sub_resource type="CircleShape2D" id=1]
+radius = 23.2099
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.993548, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.3 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 100.0
+
 [sub_resource type="CircleShape2D" id=11]
 radius = 24.0995
 
@@ -307,6 +308,19 @@ polygon = PoolVector2Array( -10.5079, -22.6941, -11.1032, -13.765, -18.4449, -13
 [node name="cannon" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource( 18 )
+
+[node name="stream_shoot" type="AudioStreamPlayer" parent="cannon"]
+stream = ExtResource( 4 )
+
+[node name="cannon_anim" type="AnimationPlayer" parent="cannon"]
+root_node = NodePath("../..")
+autoplay = "shoot"
+anims/RESET = SubResource( 3 )
+anims/shoot = SubResource( 4 )
+
+[node name="shoot_timer" type="Timer" parent="cannon"]
+wait_time = 0.5
 
 [node name="sprite" type="Sprite" parent="cannon"]
 position = Vector2( -9.03387, 0 )
@@ -348,14 +362,6 @@ collision_layer = 0
 [node name="shape" type="CollisionShape2D" parent="sensor"]
 shape = SubResource( 15 )
 
-[node name="shoot_timer" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="cannon_anim" type="AnimationPlayer" parent="."]
-autoplay = "shoot"
-anims/RESET = SubResource( 3 )
-anims/shoot = SubResource( 4 )
-
 [node name="wake_spot" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 0
@@ -384,9 +390,6 @@ anims/explode = SubResource( 14 )
 
 [node name="stream" type="Node" parent="."]
 
-[node name="stream_shoot" type="AudioStreamPlayer" parent="stream"]
-stream = ExtResource( 4 )
-
 [node name="stream_hit" type="AudioStreamPlayer2D" parent="stream"]
 stream = ExtResource( 4 )
 
@@ -399,7 +402,7 @@ margin_top = -42.766
 margin_right = 68.0
 margin_bottom = -34.766
 
+[connection signal="timeout" from="cannon/shoot_timer" to="cannon" method="_on_shoot_timer_timeout"]
 [connection signal="body_entered" from="sensor" to="." method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="sensor" to="." method="_on_sensor_body_exited"]
-[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="damage" from="wake_spot" to="." method="_on_wake_spot_damage"]

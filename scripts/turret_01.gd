@@ -15,15 +15,23 @@ export var life = 100
 onready var init_life = life
 onready var game = get_node('/root/GAME')
 
+signal player_entered(n)
+signal player_exited()
+
 var dead = false
 
+onready var cannon = $cannon
+
 func _process(delta):
+	if Engine.editor_hint:
+		return
+	
 	if bodies.size():
-		var angle = $cannon.get_angle_to(bodies[0].global_position)
+		var angle = cannon.get_angle_to(bodies[0].global_position)
 		if abs(angle) > .01:
-			$cannon.rotation += rot_vel * delta * sign(angle)
-	if $cannon/sight.is_colliding() && bodies.size() > 0:
-		if $cannon/sight.get_collider() != bodies[0]:
+			cannon.rotation += rot_vel * delta * sign(angle)
+			
+		if cannon.get_target() != bodies[0]:
 			var oldBody = bodies[0]
 			var newBodyIndex = bodies.find($cannon/sight.get_collider())
 			bodies[0] = $cannon/sight.get_collider()
@@ -32,10 +40,9 @@ func _process(delta):
 func _on_sensor_body_entered(body):
 	if(body is KinematicBody2D):
 		if !bodies.size():
-			$shoot_timer.start()
-		bodies.append(body)
-		$cannon/sight.enabled = true
-		update()
+			bodies.append(body)
+			emit_signal("player_entered", bodies.size())
+			update()
 		
 
 func _on_sensor_body_exited(body):
@@ -44,7 +51,6 @@ func _on_sensor_body_exited(body):
 		bodies.remove(index)
 	if !bodies.size():
 		$cannon/sight.enabled = false
-		$shoot_timer.stop()
 		$cannon/smoke.emitting = false
 	update()
 
@@ -64,22 +70,6 @@ func _draw():
 	if bodies.size():
 		draw_circle(Vector2(), $sensor/shape.shape.radius, Color(1, 0, 0, .1))
 	draw_circle_arc(Vector2(), $sensor/shape.shape.radius, 0, 360, Color(1, 0, 0, .5))
-
-func _on_shoot_timer_timeout():
-	if $cannon/sight.is_colliding():
-		shoot()
-	else: 
-		$cannon/smoke.emitting = false
-		
-func shoot():
-	$cannon/smoke.emitting = true
-	$cannon_anim.play("shoot")
-	$stream/stream_shoot.play()
-	var bullet = PRE_BULLET.instance()
-	bullet.global_position = global_position
-	bullet.dir = Vector2(cos($cannon.rotation), sin($cannon.rotation))
-	bullet.max_dist = sensor_radius
-	get_parent().add_child(bullet)
 	
 func set_start_rot(val):
 	start_rot = val
