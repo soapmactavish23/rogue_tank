@@ -4,6 +4,9 @@ const PRE_BULLET = preload("res://scenes/turrent_01_bullet.tscn")
 
 func _ready():
 	get_parent().connect("player_entered", self, "on_player_entered")
+	get_parent().connect("player_exited", self, "on_player_exited")
+	
+	$sight.cast_to = Vector2(get_parent().sensor_radius, 0)
 
 func get_target():
 	if $sight.is_colliding():
@@ -14,6 +17,12 @@ func on_player_entered(n):
 	if n:
 		$shoot_timer.start()
 	$sight.enabled = true
+
+func on_player_exited(n):
+	if !n:
+		$sight.enabled = false
+		$shoot_timer.stop()
+		$smoke.emitting = false
 
 
 func _on_shoot_timer_timeout():

@@ -16,7 +16,7 @@ onready var init_life = life
 onready var game = get_node('/root/GAME')
 
 signal player_entered(n)
-signal player_exited()
+signal player_exited(n)
 
 var dead = false
 
@@ -33,8 +33,8 @@ func _process(delta):
 			
 		if cannon.get_target() != bodies[0]:
 			var oldBody = bodies[0]
-			var newBodyIndex = bodies.find($cannon/sight.get_collider())
-			bodies[0] = $cannon/sight.get_collider()
+			var newBodyIndex = bodies.find(cannon.get_target())
+			bodies[0] = cannon.get_target()
 			bodies[newBodyIndex] = oldBody
 	
 func _on_sensor_body_entered(body):
@@ -49,21 +49,18 @@ func _on_sensor_body_exited(body):
 	var index = bodies.find(body)
 	if index >= 0:
 		bodies.remove(index)
-	if !bodies.size():
-		$cannon/sight.enabled = false
-		$cannon/smoke.emitting = false
+	emit_signal("player_exited", bodies.size())
 	update()
 
 func _draw():
 	if dead:
 		return
 	if !first_draw:
-		$cannon.rotation = deg2rad(start_rot)
+		cannon.rotation = deg2rad(start_rot)
 		
 		var new_shape = CircleShape2D.new()
 		new_shape.radius = sensor_radius
 		$sensor/shape.shape = new_shape
-		$cannon/sight.cast_to = Vector2(sensor_radius, 0)
 		
 		if !Engine.editor_hint:
 			first_draw = false
@@ -99,10 +96,9 @@ func _on_wake_spot_damage(damage, node):
 	$hp_bar.scale = float(life) / float(init_life)
 	if life <= 0:
 		set_process(false)
-		$cannon.queue_free()
+		cannon.queue_free()
 		$sensor.disconnect("body_exited", self, "_on_sensor_body_exited")
 		$sensor.queue_free()
-		$shoot_timer.queue_free()
 		$wake_spot.queue_free()
 		$hp_bar.queue_free()
 		dead = true
