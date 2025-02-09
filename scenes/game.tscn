@@ -65,21 +65,26 @@ life = 30
 
 [node name="turret_02" parent="." instance=ExtResource( 5 )]
 position = Vector2( 283.217, 444.14 )
+type = 0
 
 [node name="turret_04" parent="." instance=ExtResource( 5 )]
 position = Vector2( 810.774, 55.7682 )
+type = 0
 
 [node name="turret_05" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1033.02, 448.63 )
 
 [node name="turret_06" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1612.21, 432.915 )
+type = 0
 
 [node name="turret_07" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1147.51, 632.714 )
+type = 0
 
 [node name="turret_03" parent="." instance=ExtResource( 5 )]
 position = Vector2( 665.054, 570.005 )
+type = 0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 7 )
@@ -99,7 +104,7 @@ position = Vector2( 875.647, 530.512 )
 script = ExtResource( 12 )
 sensor_radius = 500
 radius = 100.0
-tank = NodePath("../../Tank")
+tank = null
 
 [node name="timer_update" type="Timer" parent="HUD/radar_circle"]
 wait_time = 0.33

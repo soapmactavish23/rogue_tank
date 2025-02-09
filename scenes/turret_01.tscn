@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/turret_01.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/towerDefense_tile298.png" type="Texture" id=2]
@@ -18,11 +18,13 @@
 [ext_resource path="res://samples/tank_explosion.wav" type="AudioStream" id=16]
 [ext_resource path="res://scenes/hp_bar.tscn" type="PackedScene" id=17]
 [ext_resource path="res://cannon.gd" type="Script" id=18]
+[ext_resource path="res://sprites/enemies/towerDefense_tile249.png" type="Texture" id=19]
+[ext_resource path="res://HOME.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("cannon/sprite:position")
+tracks/0/path = NodePath("HMG/sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -34,7 +36,7 @@ tracks/0/keys = {
 "values": [ Vector2( -9.03387, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("cannon/sprite:rotation_degrees")
+tracks/1/path = NodePath("HMG/sprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -46,7 +48,7 @@ tracks/1/keys = {
 "values": [ 90.0002 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("cannon/fire/fire2:modulate")
+tracks/2/path = NodePath("HMG/fire/fire2:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -58,7 +60,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("cannon/fire/fire1:modulate")
+tracks/3/path = NodePath("HMG/fire/fire1:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -70,7 +72,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("cannon/fire/fire1:position")
+tracks/4/path = NodePath("HMG/fire/fire1:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -82,7 +84,7 @@ tracks/4/keys = {
 "values": [ Vector2( 50.3123, -6.90833 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("cannon/fire/fire2:position")
+tracks/5/path = NodePath("HMG/fire/fire2:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -98,7 +100,7 @@ tracks/5/keys = {
 resource_name = "shoot"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("cannon/sprite:position")
+tracks/0/path = NodePath("HMG/sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -110,7 +112,7 @@ tracks/0/keys = {
 "values": [ Vector2( -22.8504, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("cannon/fire/fire2:modulate")
+tracks/1/path = NodePath("HMG/fire/fire2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -122,7 +124,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("cannon/fire/fire1:modulate")
+tracks/2/path = NodePath("HMG/fire/fire1:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -134,7 +136,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("cannon/fire/fire1:position")
+tracks/3/path = NodePath("HMG/fire/fire1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -146,7 +148,7 @@ tracks/3/keys = {
 "values": [ Vector2( 50.3123, -6.90833 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("cannon/fire/fire2:position")
+tracks/4/path = NodePath("HMG/fire/fire2:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -298,6 +300,7 @@ collision_layer = 10
 collision_mask = 9
 script = ExtResource( 1 )
 sensor_radius = 100.0
+type = 1
 
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
@@ -305,55 +308,64 @@ texture = ExtResource( 5 )
 [node name="poly" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -10.5079, -22.6941, -11.1032, -13.765, -18.4449, -13.9634, -19.0402, 6.67283, -11.3016, 13.4193, -10.9047, 22.7453, 9.92992, 22.5468, 10.5252, 13.2209, 19.2559, 5.48228, 19.0575, -14.1618, 11.9142, -15.1539, 9.73149, -22.6941 )
 
-[node name="cannon" type="Area2D" parent="."]
+[node name="HMG" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 18 )
 
-[node name="stream_shoot" type="AudioStreamPlayer" parent="cannon"]
+[node name="stream_shoot" type="AudioStreamPlayer" parent="HMG"]
 stream = ExtResource( 4 )
 
-[node name="cannon_anim" type="AnimationPlayer" parent="cannon"]
+[node name="cannon_anim" type="AnimationPlayer" parent="HMG"]
 root_node = NodePath("../..")
 autoplay = "shoot"
 anims/RESET = SubResource( 3 )
 anims/shoot = SubResource( 4 )
 
-[node name="shoot_timer" type="Timer" parent="cannon"]
+[node name="shoot_timer" type="Timer" parent="HMG"]
 wait_time = 0.5
 
-[node name="sprite" type="Sprite" parent="cannon"]
+[node name="sprite" type="Sprite" parent="HMG"]
 position = Vector2( -9.03387, 0 )
 rotation = 1.5708
 texture = ExtResource( 3 )
 offset = Vector2( -0.160278, -11.3925 )
 
-[node name="shape" type="CollisionShape2D" parent="cannon"]
+[node name="shape" type="CollisionShape2D" parent="HMG"]
 shape = SubResource( 1 )
 
-[node name="sight" type="RayCast2D" parent="cannon"]
+[node name="sight" type="RayCast2D" parent="HMG"]
 enabled = true
 cast_to = Vector2( 100, 0 )
 
-[node name="fire" type="Node2D" parent="cannon"]
+[node name="fire" type="Node2D" parent="HMG"]
 
-[node name="fire1" type="Sprite" parent="cannon/fire"]
+[node name="fire1" type="Sprite" parent="HMG/fire"]
 position = Vector2( 50.3123, -6.90833 )
 rotation = 1.5708
 texture = ExtResource( 2 )
 
-[node name="fire2" type="Sprite" parent="cannon/fire"]
+[node name="fire2" type="Sprite" parent="HMG/fire"]
 position = Vector2( 50.3124, 6.47028 )
 rotation = 1.5708
 texture = ExtResource( 2 )
 
-[node name="smoke" type="Particles2D" parent="cannon"]
+[node name="smoke" type="Particles2D" parent="HMG"]
 position = Vector2( 29.7302, 0 )
 emitting = false
 amount = 4
 local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 6 )
+
+[node name="HOME" type="Area2D" parent="."]
+script = ExtResource( 20 )
+
+[node name="sprite" type="Sprite" parent="HOME"]
+rotation = 1.5708
+texture = ExtResource( 19 )
+offset = Vector2( 0.0242618, -5.76129 )
 
 [node name="sensor" type="Area2D" parent="."]
 position = Vector2( 0, 0.25 )
@@ -402,7 +414,7 @@ margin_top = -42.766
 margin_right = 68.0
 margin_bottom = -34.766
 
-[connection signal="timeout" from="cannon/shoot_timer" to="cannon" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="HMG/shoot_timer" to="HMG" method="_on_shoot_timer_timeout"]
 [connection signal="body_entered" from="sensor" to="." method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="sensor" to="." method="_on_sensor_body_exited"]
 [connection signal="damage" from="wake_spot" to="." method="_on_wake_spot_damage"]

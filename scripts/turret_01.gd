@@ -7,6 +7,8 @@ var rot_vel = PI * .2
 export(float, 0, 360) var start_rot = 0.0 setget set_start_rot
 export(float, 100, 1000) var sensor_radius = 0.0 setget set_sensor_radius
 
+export(int, 'HMG', 'HOME') var type = 0 setget set_type
+
 const PRE_BULLET = preload("res://scenes/turrent_01_bullet.tscn")
 
 var first_draw = false
@@ -20,7 +22,7 @@ signal player_exited(n)
 
 var dead = false
 
-onready var cannon = $cannon
+onready var cannon = $HMG
 
 func _process(delta):
 	if Engine.editor_hint:
@@ -55,15 +57,31 @@ func _on_sensor_body_exited(body):
 func _draw():
 	if dead:
 		return
-	if !first_draw:
-		cannon.rotation = deg2rad(start_rot)
+	
+	if Engine.editor_hint:
+		$HMG.visible = type == 0
+		$HOME.visible = type == 1
 		
+	if type == 0:
+		cannon = $HMG
+	elif type == 1:
+		cannon = $HOME
+	
+	if !first_draw:
+		$HMG.visible = type == 0
+		$HOME.visible = type == 1
+		cannon.rotation = deg2rad(start_rot)
 		var new_shape = CircleShape2D.new()
 		new_shape.radius = sensor_radius
 		$sensor/shape.shape = new_shape
-		
 		if !Engine.editor_hint:
 			first_draw = false
+			
+			#if type == 0:
+			#	$HOME.queue_free()
+			#elif type == 1:
+			#	$HMG.queue_free()
+			
 	if bodies.size():
 		draw_circle(Vector2(), $sensor/shape.shape.radius, Color(1, 0, 0, .1))
 	draw_circle_arc(Vector2(), $sensor/shape.shape.radius, 0, 360, Color(1, 0, 0, .5))
@@ -108,3 +126,8 @@ func _on_wake_spot_damage(damage, node):
 		get_tree().call_group("camera", "shake", 5, 1)
 		remove_from_group("radar_entity")
 		GAME.add_score(250)
+
+func set_type(val):
+	type = val
+	if Engine.editor_hint:
+		update()
