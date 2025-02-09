@@ -2,7 +2,7 @@ tool
 extends StaticBody2D
 
 var bodies = []
-var rot_vel = PI * .2
+
 
 export(float, 0, 360) var start_rot = 0.0 setget set_start_rot
 export(float, 100, 1000) var sensor_radius = 0.0 setget set_sensor_radius
@@ -31,7 +31,7 @@ func _process(delta):
 	if bodies.size():
 		var angle = cannon.get_angle_to(bodies[0].global_position)
 		if abs(angle) > .01:
-			cannon.rotation += rot_vel * delta * sign(angle)
+			cannon.rotation += cannon.rot_vel * delta * sign(angle)
 			
 		if cannon.get_target() != bodies[0]:
 			var oldBody = bodies[0]

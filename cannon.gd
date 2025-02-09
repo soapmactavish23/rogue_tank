@@ -1,5 +1,6 @@
 extends Area2D
 
+const rot_vel = PI * .2
 const PRE_BULLET = preload("res://scenes/turrent_01_bullet.tscn")
 
 func _ready():
