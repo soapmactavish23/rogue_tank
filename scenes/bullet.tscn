@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/bullet.gd" type="Script" id=1]
-[ext_resource path="res://sprites/smokeWhite1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/smoke.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/bulletRed1_outline.png" type="Texture" id=3]
 [ext_resource path="res://sprites/explosionSmoke5.png" type="Texture" id=4]
 [ext_resource path="res://sprites/explosionSmoke1.png" type="Texture" id=5]
@@ -12,29 +12,6 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
 height = 8.0
-
-[sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.00591716, 0.47929, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
-
-[sub_resource type="Curve" id=4]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="ParticlesMaterial" id=6]
-flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.2
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
 
 [sub_resource type="Animation" id=7]
 resource_name = "explode"
@@ -79,13 +56,7 @@ position = Vector2( 0.22695, 0.640926 )
 rotation = 1.5708
 scale = Vector2( 0.469906, 0.921668 )
 
-[node name="smoke" type="Particles2D" parent="."]
-position = Vector2( -9.22318, -1.58112 )
-amount = 15
-lifetime = 0.3
-local_coords = false
-process_material = SubResource( 6 )
-texture = ExtResource( 2 )
+[node name="smoke" parent="." instance=ExtResource( 2 )]
 
 [node name="sprite" type="Sprite" parent="."]
 rotation = 1.5708
