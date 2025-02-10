@@ -142,3 +142,7 @@ func shoot_mg():
 
 func _on_timer_mg_timeout():
 	shoot_mg()
+
+
+func _on_damage_area_destroid():
+	print("died")

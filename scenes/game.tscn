@@ -50,19 +50,20 @@ position = Vector2( 596.59, 224.456 )
 position = Vector2( 601.556, 264.159 )
 
 [node name="oilSpill_large" parent="." instance=ExtResource( 9 )]
-position = Vector2( 536, 437 )
+position = Vector2( 609.945, 117.167 )
 
 [node name="crateWood" parent="." instance=ExtResource( 10 )]
 position = Vector2( 483, 428 )
 collision_mask = 44
 
 [node name="barrelBlack_top" parent="." instance=ExtResource( 11 )]
-position = Vector2( 355.46, 136.246 )
+position = Vector2( 272.606, 110.41 )
 
 [node name="turret_01" parent="." instance=ExtResource( 5 )]
-position = Vector2( 331.3, 67.959 )
+position = Vector2( 356.245, 49.2501 )
 start_rot = 152.92
 sensor_radius = 195.575
+type = 0
 life = 30
 
 [node name="turret_02" parent="." instance=ExtResource( 5 )]
@@ -106,7 +107,7 @@ position = Vector2( 875.647, 530.512 )
 script = ExtResource( 12 )
 sensor_radius = 500
 radius = 100.0
-tank = null
+tank = NodePath("../../Tank")
 
 [node name="timer_update" type="Timer" parent="HUD/radar_circle"]
 wait_time = 0.33
