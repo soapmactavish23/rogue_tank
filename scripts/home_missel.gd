@@ -20,4 +20,19 @@ func _process(delta):
 
 func _on_home_missel_body_entered(body):
 	if body is KinematicBody2D:
-		queue_free()
+		destroy()
+
+
+func _on_area_damage_destroid():
+	destroy()
+
+func destroy():
+	$explosion.play("boom")
+	$area_damage.queue_free()
+	$sprite.hide()
+	$shape.queue_free()
+	set_process(false)
+	$smoke.emitting = false
+	$fire.emitting = false
+	yield(get_tree().create_timer(2), "timeout")
+	queue_free()

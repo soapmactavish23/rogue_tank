@@ -23,6 +23,9 @@ func get_target():
 
 func fire():
 	if get_parent().bodies.size():
+		$anim.play("fire")
+		$fire.play()
+		$smoke.emitting = true
 		var missel = PRE_MISSEL.instance()
 		get_parent().add_child(missel)
 		missel.rotation = rotation

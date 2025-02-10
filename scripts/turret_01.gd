@@ -29,14 +29,15 @@ func _process(delta):
 		return
 	
 	if bodies.size():
+		var target = cannon.get_target()
 		var angle = cannon.get_angle_to(bodies[0].global_position)
 		if abs(angle) > .01:
 			cannon.rotation += cannon.rot_vel * delta * sign(angle)
 			
-		if cannon.get_target() != bodies[0]:
+		if target != bodies[0]:
 			var oldBody = bodies[0]
-			var newBodyIndex = bodies.find(cannon.get_target())
-			bodies[0] = cannon.get_target()
+			var newBodyIndex = bodies.find(target)
+			bodies[0] = target
 			bodies[newBodyIndex] = oldBody
 	
 func _on_sensor_body_entered(body):

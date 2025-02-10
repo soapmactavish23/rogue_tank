@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/turret_01.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/towerDefense_tile298.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://cannon.gd" type="Script" id=18]
 [ext_resource path="res://sprites/enemies/towerDefense_tile249.png" type="Texture" id=19]
 [ext_resource path="res://HOME.gd" type="Script" id=20]
+[ext_resource path="res://samples/barrel_explosion.wav" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -187,7 +188,61 @@ scale = 0.5
 scale_curve = SubResource( 9 )
 color_ramp = SubResource( 7 )
 
-[sub_resource type="CircleShape2D" id=15]
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "fire"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -29.8671, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=19]
+offsets = PoolRealArray( 0.154839, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
+
+[sub_resource type="Curve" id=21]
+_data = [ Vector2( 0.00561798, 0.00454545 ), 0.0, 3.04599, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
+
+[sub_resource type="ParticlesMaterial" id=18]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 22 )
+color_ramp = SubResource( 20 )
+
+[sub_resource type="CircleShape2D" id=23]
 radius = 100.0
 
 [sub_resource type="CircleShape2D" id=11]
@@ -373,12 +428,29 @@ wait_time = 2.0
 [node name="barrel" type="Position2D" parent="HOME"]
 position = Vector2( 46.3515, 0 )
 
+[node name="fire" type="AudioStreamPlayer2D" parent="HOME"]
+stream = ExtResource( 21 )
+
+[node name="anim" type="AnimationPlayer" parent="HOME"]
+anims/RESET = SubResource( 16 )
+anims/fire = SubResource( 17 )
+
+[node name="smoke" type="Particles2D" parent="HOME"]
+position = Vector2( 46.2188, 0 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+randomness = 0.28
+process_material = SubResource( 18 )
+texture = ExtResource( 6 )
+
 [node name="sensor" type="Area2D" parent="."]
 position = Vector2( 0, 0.25 )
 collision_layer = 0
 
 [node name="shape" type="CollisionShape2D" parent="sensor"]
-shape = SubResource( 15 )
+shape = SubResource( 23 )
 
 [node name="wake_spot" type="Area2D" parent="."]
 collision_layer = 3
