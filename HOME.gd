@@ -1,6 +1,7 @@
 extends Area2D
 
-const rot_vel = PI * .1
+const PRE_MISSEL = preload("res://scenes/home_missel.tscn")
+var rot_vel = PI * .1
 
 func _ready():
 	pass
@@ -12,5 +13,23 @@ func get_target():
 	var facing = Vector2(cos(rotation), sin(rotation))
 	
 	if ht.dot(facing) > 0:
-		print('fire')
+		if $fire_timer.is_stopped():
+			fire()
+			$fire_timer.start()
+	else:
+		$fire_timer.stop()
+		
 	return null
+
+func fire():
+	if get_parent().bodies.size():
+		var missel = PRE_MISSEL.instance()
+		get_parent().add_child(missel)
+		missel.rotation = rotation
+		missel.target = get_parent().bodies[0]
+		missel.global_position = $barrel.global_position
+	else:
+		$fire_timer.stop()
+
+func _on_firetimer_timeout():
+	fire()

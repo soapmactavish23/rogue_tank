@@ -367,6 +367,12 @@ rotation = 1.5708
 texture = ExtResource( 19 )
 offset = Vector2( 0.0242618, -5.76129 )
 
+[node name="fire_timer" type="Timer" parent="HOME"]
+wait_time = 2.0
+
+[node name="barrel" type="Position2D" parent="HOME"]
+position = Vector2( 46.3515, 0 )
+
 [node name="sensor" type="Area2D" parent="."]
 position = Vector2( 0, 0.25 )
 collision_layer = 0
@@ -415,6 +421,7 @@ margin_right = 68.0
 margin_bottom = -34.766
 
 [connection signal="timeout" from="HMG/shoot_timer" to="HMG" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="HOME/fire_timer" to="HOME" method="_on_firetimer_timeout"]
 [connection signal="body_entered" from="sensor" to="." method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="sensor" to="." method="_on_sensor_body_exited"]
 [connection signal="damage" from="wake_spot" to="." method="_on_wake_spot_damage"]
