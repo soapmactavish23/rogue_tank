@@ -38,7 +38,7 @@ color_ramp = SubResource( 5 )
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 6.91856
-height = 25.716
+height = 31.4531
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 9.30503
@@ -54,6 +54,7 @@ animations = [ {
 
 [node name="home_missel" type="Area2D"]
 collision_layer = 2
+collision_mask = 49
 script = ExtResource( 2 )
 
 [node name="fire" type="Particles2D" parent="."]

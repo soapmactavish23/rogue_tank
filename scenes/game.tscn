@@ -24,10 +24,10 @@ script = ExtResource( 14 )
 [node name="ground" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 format = 1
-tile_data = PoolIntArray( -131072, 0, 0, -131058, 0, 0, -65534, 0, 0, -65532, 0, 0, -65530, 0, 0, -65528, 0, 0, -65526, 0, 0, -65524, 0, 0, 0, 0, 0, 14, 0, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0, 19, 3, 0, 20, 3, 0, 21, 3, 0, 22, 3, 0, 23, 3, 0, 24, 3, 0, 25, 3, 0, 26, 3, 0, 27, 3, 0, 28, 3, 0, 30, 3, 0, 32, 6, 0, 65536, 10, 0, 65538, 45, 0, 65540, 10, 0, 65541, 10, 0, 65542, 10, 0, 65543, 10, 0, 65544, 10, 0, 65545, 10, 0, 65547, 10, 0, 65549, 22, 0, 65566, 3, 0, 65568, 6, 0, 131087, 0, 0, 131089, 3, 0, 131090, 3, 0, 131091, 3, 0, 131092, 3, 0, 131093, 3, 0, 131094, 3, 0, 131095, 3, 0, 131096, 3, 0, 131097, 3, 0, 131098, 3, 0, 131099, 3, 0, 131100, 3, 0, 131104, 6, 0, 196608, 0, 0, 196610, 9, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196619, 0, 0, 196621, 9, 0, 196638, 3, 0, 196640, 6, 0, 262144, 0, 0, 262159, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 262172, 0, 0, 262176, 6, 0, 327682, 9, 0, 327684, 0, 0, 327685, 0, 0, 327687, 0, 0, 327689, 0, 0, 327691, 0, 0, 327693, 9, 0, 327695, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0, 327710, 3, 0, 327712, 6, 0, 393216, 0, 0, 458754, 35, 0, 458756, 42, 0, 458758, 30, 0, 458760, 10, 0, 458762, 10, 0, 458764, 10, 0, 458765, 47, 0, 458767, 10, 0, 458769, 10, 0, 458770, 11, 0, 458772, 10, 0, 458774, 10, 0, 458776, 10, 0, 458778, 10, 0, 458780, 10, 0, 458782, 29, 0, 458784, 24, 0, 524288, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589841, 0, 0, 589842, 35, 0, 589844, 10, 0, 589846, 10, 0, 589848, 10, 0, 589850, 10, 0, 589852, 10, 0, 589854, 29, 0, 589856, 27, 0, 655360, 0, 0 )
+tile_data = PoolIntArray( -65536, 0, 0, -65534, 0, 0, -65532, 0, 0, -65530, 0, 0, -65528, 0, 0, -65526, 0, 0, -65524, 0, 0, -65522, 0, 0, -65520, 2, 0, -65519, 2, 0, -65518, 2, 0, -65517, 2, 0, -65516, 2, 0, -65515, 2, 0, -65514, 2, 0, -65513, 2, 0, -65512, 2, 0, -65510, 3, 0, -65508, 16, 0, -65506, 15, 0, -65504, 25, 0, -65502, 3, 0, -65500, 3, 0, -65498, 3, 0, -65496, 3, 0, -65494, 3, 0, 14, 0, 0, 65536, 10, 0, 65538, 45, 0, 65540, 10, 0, 65541, 10, 0, 65542, 10, 0, 65543, 10, 0, 65544, 10, 0, 65545, 10, 0, 65547, 45, 0, 65549, 22, 0, 65552, 2, 0, 65554, 16, 0, 65556, 12, 0, 65558, 12, 0, 65560, 12, 0, 65562, 12, 0, 65564, 5, 0, 65566, 15, 0, 65568, 24, 0, 65570, 16, 0, 65572, 12, 0, 65574, 12, 0, 65576, 25, 0, 65578, 3, 0, 131087, 0, 0, 131114, 3, 0, 196608, 38, 0, 196610, 19, 0, 196612, 10, 0, 196614, 10, 0, 196616, 10, 0, 196617, 10, 0, 196619, 7, 0, 196621, 7, 0, 196623, 10, 0, 196624, 29, 0, 196626, 15, 0, 196628, 25, 0, 196630, 2, 0, 196631, 2, 0, 196632, 2, 0, 196634, 16, 0, 196636, 15, 0, 196638, 15, 0, 196640, 15, 0, 196642, 17, 0, 196644, 12, 0, 196646, 12, 0, 196648, 27, 0, 262144, 38, 0, 262186, 3, 0, 327680, 38, 0, 327682, 19, 0, 327684, 10, 0, 327686, 10, 0, 327688, 10, 0, 327689, 10, 0, 327691, 7, 0, 327693, 21, 0, 327695, 0, 0, 327697, 1, 0, 327698, 26, 0, 327700, 28, 0, 327702, 12, 0, 327704, 12, 0, 327706, 27, 0, 327708, 28, 0, 327710, 15, 0, 327712, 27, 0, 327714, 28, 0, 327716, 12, 0, 327718, 12, 0, 327720, 25, 0, 327722, 3, 0, 393216, 38, 0, 393258, 3, 0, 458752, 38, 0, 458754, 35, 0, 458756, 10, 0, 458758, 10, 0, 458760, 10, 0, 458761, 10, 0, 458763, 47, 0, 458765, 47, 0, 458767, 10, 0, 458768, 10, 0, 458770, 47, 0, 458772, 29, 0, 458774, 12, 0, 458776, 12, 0, 458778, 12, 0, 458780, 12, 0, 458782, 46, 0, 458784, 12, 0, 458786, 12, 0, 458788, 12, 0, 458790, 12, 0, 458792, 27, 0, 524330, 3, 0, 589824, 0, 0, 589826, 37, 0, 589828, 37, 0, 589830, 37, 0, 589831, 37, 0, 589832, 37, 0, 589833, 37, 0, 589835, 37, 0, 589836, 37, 0, 589837, 37, 0, 589838, 37, 0, 589839, 37, 0, 589840, 37, 0, 589841, 37, 0, 589842, 37, 0, 589844, 2, 0, 589845, 2, 0, 589846, 2, 0, 589847, 3, 0, 589848, 3, 0, 589849, 3, 0, 589850, 2, 0, 589851, 2, 0, 589852, 2, 0, 589853, 2, 0, 589854, 2, 0, 589855, 2, 0, 589856, 2, 0, 589858, 2, 0, 589860, 2, 0, 589862, 2, 0, 589864, 2, 0, 655379, 2, 0, 655380, 2, 0, 655381, 2, 0, 655382, 2, 0, 655383, 2, 0, 655384, 2, 0, 655385, 3, 0, 655386, 3, 0, 655387, 2, 0, 655388, 2, 0, 655389, 2, 0, 655390, 2, 0, 655391, 2, 0, 655392, 2, 0, 655393, 2, 0, 655394, 2, 0, 655395, 2, 0, 655396, 2, 0, 655397, 2, 0, 655398, 2, 0, 655399, 2, 0, 655400, 2, 0, 655402, 3, 0, 720916, 2, 0, 720917, 2, 0, 720918, 2, 0, 720923, 2, 0, 720924, 2, 0, 720925, 2, 0, 720926, 2, 0, 720927, 2, 0, 720928, 2, 0, 720932, 2, 0, 720933, 2, 0, 720934, 2, 0, 720935, 2, 0, 720936, 2, 0, 786465, 2, 0, 786466, 2, 0, 786467, 2, 0, 786468, 2, 0 )
 
 [node name="Tank" parent="." instance=ExtResource( 2 )]
-position = Vector2( 50, 128 )
+position = Vector2( 69.0161, 121.953 )
 
 [node name="camera" type="Camera2D" parent="Tank"]
 current = true
@@ -37,64 +37,14 @@ limit_right = 2048
 limit_bottom = 0
 script = ExtResource( 4 )
 
-[node name="treeGreen_large" parent="." instance=ExtResource( 6 )]
-position = Vector2( 394, 428 )
-
-[node name="barricadeMetal" parent="." instance=ExtResource( 8 )]
-position = Vector2( 568.109, 242.03 )
-
-[node name="barricadeMetal2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 596.59, 224.456 )
-
-[node name="barricadeMetal3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 601.556, 264.159 )
-
-[node name="oilSpill_large" parent="." instance=ExtResource( 9 )]
-position = Vector2( 609.945, 117.167 )
-
-[node name="crateWood" parent="." instance=ExtResource( 10 )]
-position = Vector2( 483, 428 )
-collision_mask = 44
-
-[node name="barrelBlack_top" parent="." instance=ExtResource( 11 )]
-position = Vector2( 272.606, 110.41 )
-
-[node name="turret_01" parent="." instance=ExtResource( 5 )]
-position = Vector2( 356.245, 49.2501 )
-start_rot = 152.92
-sensor_radius = 195.575
-type = 0
-life = 30
-
-[node name="turret_02" parent="." instance=ExtResource( 5 )]
-position = Vector2( 283.217, 444.14 )
-type = 0
-
-[node name="turret_04" parent="." instance=ExtResource( 5 )]
-position = Vector2( 810.774, 55.7682 )
-type = 0
-
-[node name="turret_05" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1033.02, 448.63 )
-
-[node name="turret_06" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1612.21, 432.915 )
-type = 0
-
-[node name="turret_07" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1147.51, 632.714 )
-type = 0
-
-[node name="turret_03" parent="." instance=ExtResource( 5 )]
-position = Vector2( 665.054, 570.005 )
-type = 0
-
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 7 )
 
 [node name="score" type="Label" parent="HUD"]
-margin_right = 1023.0
-margin_bottom = 68.0
+margin_left = 2.50836
+margin_top = 5.99323
+margin_right = 1025.51
+margin_bottom = 73.9932
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -107,10 +57,303 @@ position = Vector2( 875.647, 530.512 )
 script = ExtResource( 12 )
 sensor_radius = 500
 radius = 100.0
-tank = NodePath("../../Tank")
+tank = null
 
 [node name="timer_update" type="Timer" parent="HUD/radar_circle"]
 wait_time = 0.33
 autostart = true
+
+[node name="over" type="Node2D" parent="HUD"]
+visible = false
+
+[node name="modal" type="ColorRect" parent="HUD/over"]
+margin_right = 1024.0
+margin_bottom = 651.0
+color = Color( 0.211765, 0.211765, 0.211765, 0.701961 )
+
+[node name="game_over" type="Label" parent="HUD/over"]
+margin_left = 2.50836
+margin_top = 239.339
+margin_right = 1025.51
+margin_bottom = 307.339
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="trees" type="Node2D" parent="."]
+
+[node name="treeGreen_large2" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 586.5, 315.948 )
+
+[node name="treeGreen_large10" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 677.137, 319.412 )
+
+[node name="treeGreen_large3" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 481.105, 315.948 )
+
+[node name="treeGreen_large4" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 620.691, 186.806 )
+
+[node name="treeGreen_large11" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 361.777, 316.578 )
+
+[node name="treeGreen_large12" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 372.16, 443.057 )
+
+[node name="treeGreen_large13" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 579.812, 443.057 )
+
+[node name="treeGreen_large5" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 365.656, 186.954 )
+
+[node name="treeGreen_large6" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 260.073, 315.591 )
+
+[node name="treeGreen_large7" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 265.855, 191.733 )
+
+[node name="treeGreen_large8" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 763.313, 315.795 )
+
+[node name="treeGreen_large9" parent="trees" instance=ExtResource( 6 )]
+position = Vector2( 549.944, 186.668 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="turret_02" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 469.683, 446.693 )
+start_rot = 175.221
+sensor_radius = 200.0
+life = 40
+
+[node name="turret_15" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 700.248, 188.409 )
+start_rot = 175.221
+sensor_radius = 200.0
+life = 40
+
+[node name="turret_09" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 268.095, 446.693 )
+start_rot = 229.381
+type = 0
+life = 40
+
+[node name="turret_08" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 688.318, 443.241 )
+start_rot = 111.504
+type = 0
+life = 40
+
+[node name="turret_04" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 453.99, 186.967 )
+start_rot = 207.08
+type = 0
+life = 40
+
+[node name="turret_05" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1054.22, 386.728 )
+sensor_radius = 200.0
+life = 40
+
+[node name="turret_06" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1282.56, 452.77 )
+type = 0
+life = 40
+
+[node name="turret_14" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1912.07, 450.098 )
+type = 0
+life = 40
+
+[node name="turret_17" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1922.51, 62.9504 )
+type = 0
+life = 40
+
+[node name="turret_07" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1425.01, 308.128 )
+type = 0
+life = 40
+
+[node name="turret_10" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1643.98, 308.128 )
+type = 0
+life = 40
+
+[node name="turret_11" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1294.75, 191.733 )
+type = 0
+life = 40
+
+[node name="turret_12" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1781.79, 191.733 )
+type = 0
+life = 40
+
+[node name="turret_13" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1534.5, 192.677 )
+sensor_radius = 200.0
+life = 40
+
+[node name="turret_03" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 881.631, 387.499 )
+type = 0
+life = 40
+
+[node name="barris" type="Node2D" parent="."]
+
+[node name="barrelBlack_top" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 879.074, 189.913 )
+
+[node name="barrelBlack_top2" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 909.776, 188.051 )
+
+[node name="barrelBlack_top8" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 1399.73, 491.299 )
+
+[node name="barrelBlack_top9" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 1399.73, 522.218 )
+
+[node name="barrelBlack_top10" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 1529.35, 385.459 )
+
+[node name="barrelBlack_top11" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 1529.35, 385.459 )
+
+[node name="barrelBlack_top4" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 404.668, 237.439 )
+
+[node name="barrelBlack_top5" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 404.668, 276.725 )
+
+[node name="barrelBlack_top6" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 404.668, 369.89 )
+
+[node name="barrelBlack_top7" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 404.668, 402.441 )
+
+[node name="barrelBlack_top3" parent="barris" instance=ExtResource( 11 )]
+position = Vector2( 1002.65, 253.076 )
+
+[node name="crateWoods" type="Node2D" parent="."]
+
+[node name="crateWood" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 719.292, 491.908 )
+collision_mask = 44
+
+[node name="crateWood3" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 246.944, 494.737 )
+collision_mask = 44
+
+[node name="crateWood2" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 244.823, 526.347 )
+collision_mask = 44
+
+[node name="crateWood4" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 466.855, 491.698 )
+collision_mask = 44
+
+[node name="crateWood5" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 466.855, 529.882 )
+collision_mask = 44
+
+[node name="crateWood6" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 951.84, 489.373 )
+collision_mask = 44
+
+[node name="crateWood9" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 951.84, 526.677 )
+collision_mask = 44
+
+[node name="crateWood10" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 951.84, 271.105 )
+collision_mask = 44
+
+[node name="crateWood11" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 951.84, 233.007 )
+collision_mask = 44
+
+[node name="crateWood12" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1165.34, 233.007 )
+collision_mask = 44
+
+[node name="crateWood13" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1165.34, 272.692 )
+collision_mask = 44
+
+[node name="crateWood8" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 951.84, 489.373 )
+collision_mask = 44
+
+[node name="crateWood7" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 717.878, 538.598 )
+collision_mask = 44
+
+[node name="crateWood14" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1225.69, 151.057 )
+collision_mask = 44
+
+[node name="crateWood15" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1773.59, 113.64 )
+collision_mask = 44
+
+[node name="crateWood16" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1806.56, 139.476 )
+collision_mask = 44
+
+[node name="crateWood17" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1770.03, 151.057 )
+collision_mask = 44
+
+[node name="crateWood18" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1250.56, 121.179 )
+collision_mask = 44
+
+[node name="crateWood19" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1264.81, 152.361 )
+collision_mask = 44
+
+[node name="crateWood20" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 1961.14, 449.921 )
+collision_mask = 44
+
+[node name="crateWood21" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 2000.34, 447.248 )
+collision_mask = 44
+
+[node name="crateWood22" parent="crateWoods" instance=ExtResource( 10 )]
+position = Vector2( 2008.35, 532.775 )
+collision_mask = 44
+
+[node name="barricades" type="Node2D" parent="."]
+
+[node name="barricadeMetal" parent="barricades" instance=ExtResource( 8 )]
+position = Vector2( 589.131, 255.484 )
+
+[node name="barricadeMetal2" parent="barricades" instance=ExtResource( 8 )]
+position = Vector2( 617.612, 237.91 )
+
+[node name="barricadeMetal3" parent="barricades" instance=ExtResource( 8 )]
+position = Vector2( 621.318, 272.574 )
+
+[node name="barricadeMetal4" parent="barricades" instance=ExtResource( 8 )]
+position = Vector2( 749.83, 387.857 )
+
+[node name="oils" type="Node2D" parent="."]
+
+[node name="oilSpill_large" parent="oils" instance=ExtResource( 9 )]
+position = Vector2( 569.844, 114.647 )
+
+[node name="oilSpill_large2" parent="oils" instance=ExtResource( 9 )]
+position = Vector2( 571.569, 149.959 )
+
+[node name="oilSpill_large3" parent="oils" instance=ExtResource( 9 )]
+position = Vector2( 317.065, 146.179 )
+
+[node name="oilSpill_large4" parent="oils" instance=ExtResource( 9 )]
+position = Vector2( 319.584, 109.012 )
 
 [connection signal="timeout" from="HUD/radar_circle/timer_update" to="HUD/radar_circle" method="_on_timer_update_timeout"]

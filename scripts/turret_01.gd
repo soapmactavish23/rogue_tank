@@ -12,7 +12,7 @@ export(int, 'HMG', 'HOME') var type = 0 setget set_type
 const PRE_BULLET = preload("res://scenes/turrent_01_bullet.tscn")
 
 var first_draw = false
-export var life = 100
+export var life = 40
 
 onready var init_life = life
 onready var game = get_node('/root/GAME')
@@ -23,6 +23,12 @@ signal player_exited(n)
 var dead = false
 
 onready var cannon = $HMG
+
+func _ready():
+	if type == 0:
+		cannon = $HMG
+	elif type == 1:
+		cannon = $HOME
 
 func _process(delta):
 	if Engine.editor_hint:

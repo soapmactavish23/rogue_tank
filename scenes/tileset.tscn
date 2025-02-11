@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://sprites/terrainTiles_default.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 67 )
 
 [node name="tileset" type="Node2D"]
 
@@ -120,12 +123,13 @@ region_rect = Rect2( 128, 0, 128, 128 )
 
 [node name="body" type="StaticBody2D" parent="tile10"]
 
-[node name="poly" type="CollisionPolygon2D" parent="tile10/body"]
-polygon = PoolVector2Array( 24, 0, 24, 130, 32, 131, 31, 0 )
+[node name="shape" type="CollisionShape2D" parent="tile10/body"]
+position = Vector2( 27, 64 )
+shape = SubResource( 1 )
 
-[node name="poly2" type="CollisionPolygon2D" parent="tile10/body"]
-position = Vector2( 73, -2 )
-polygon = PoolVector2Array( 24, 0, 24, 133, 32, 133, 31, 0 )
+[node name="shape2" type="CollisionShape2D" parent="tile10/body"]
+position = Vector2( 100, 64 )
+shape = SubResource( 1 )
 
 [node name="tile11" type="Sprite" parent="."]
 position = Vector2( 256, 0 )

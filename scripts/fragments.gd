@@ -13,7 +13,6 @@ func on_fragment_tree_exited():
 		if c is RigidBody2D:
 			bodies += 1
 	
-	print(bodies)
 	
 	if bodies <= 1:
 		queue_free()

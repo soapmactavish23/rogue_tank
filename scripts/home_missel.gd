@@ -20,6 +20,7 @@ func _process(delta):
 
 func _on_home_missel_body_entered(body):
 	if body is KinematicBody2D:
+		body.damage_from_missel(30, self)
 		destroy()
 
 

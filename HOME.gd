@@ -7,7 +7,6 @@ func _ready():
 	pass
 
 func get_target():
-	print(get_parent().bodies[0])
 	var tank = get_parent().bodies[0]
 	var ht = (tank.global_position - global_position).normalized()
 	var facing = Vector2(cos(rotation), sin(rotation))

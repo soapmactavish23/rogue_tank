@@ -33,11 +33,12 @@ func _on_shoot_timer_timeout():
 		$smoke.emitting = false
 
 func shoot():
-	$smoke.emitting = true
-	$cannon_anim.play("shoot")
-	$stream_shoot.play()
-	var bullet = PRE_BULLET.instance()
-	bullet.global_position = global_position
-	bullet.dir = Vector2(cos(rotation), sin(rotation))
-	bullet.max_dist = get_parent().sensor_radius
-	get_parent().get_parent().add_child(bullet)
+	if self.visible:
+		$smoke.emitting = true
+		$cannon_anim.play("shoot")
+		$stream_shoot.play()
+		var bullet = PRE_BULLET.instance()
+		bullet.global_position = global_position
+		bullet.dir = Vector2(cos(rotation), sin(rotation))
+		bullet.max_dist = get_parent().sensor_radius
+		get_parent().get_parent().add_child(bullet)

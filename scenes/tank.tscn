@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/tank.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tankBody_bigRed.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://samples/reload.wav" type="AudioStream" id=7]
 [ext_resource path="res://samples/tank_motor.wav" type="AudioStream" id=8]
 [ext_resource path="res://scripts/destructable.gd" type="Script" id=9]
+[ext_resource path="res://scenes/hp_bar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/barrelBlack_side.png" type="Texture" id=11]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "tank_samples"
@@ -87,13 +89,28 @@ stream = ExtResource( 8 )
 [node name="damage_area" type="Area2D" parent="."]
 collision_layer = 32
 script = ExtResource( 9 )
-health = 100
 
 [node name="shape" type="CollisionShape2D" parent="damage_area"]
 position = Vector2( 0.374573, 0 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="hp" type="Node2D" parent="HUD"]
+position = Vector2( 172.834, 63.9494 )
+
+[node name="hp_bar" parent="HUD/hp" instance=ExtResource( 10 )]
+margin_left = -117.0
+margin_top = -55.6123
+margin_right = 161.0
+margin_bottom = -31.6123
+
+[node name="sprite" type="Sprite" parent="HUD/hp"]
+position = Vector2( -144.798, -43.776 )
+texture = ExtResource( 11 )
+
 [connection signal="timeout" from="timer_reload" to="." method="_on_timer_reload_timeout"]
 [connection signal="timeout" from="timer_mg" to="." method="_on_timer_mg_timeout"]
 [connection signal="destroid" from="damage_area" to="." method="_on_damage_area_destroid"]
+[connection signal="hitted" from="damage_area" to="." method="_on_damage_area_hitted"]

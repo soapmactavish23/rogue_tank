@@ -145,4 +145,15 @@ func _on_timer_mg_timeout():
 
 
 func _on_damage_area_destroid():
-	print("died")
+	queue_free()
+
+
+func _on_damage_area_hitted(damage, health, node):
+	hit(health)
+
+func damage_from_missel(damage, node):
+	$damage_area.hit(damage, node)
+	
+func hit(health):
+	$HUD/hp/hp_bar.scale = float(health) / float(150)
+	
