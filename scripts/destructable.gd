@@ -3,7 +3,7 @@ extends Area2D
 signal hitted(damage, health, node)
 signal destroid()
 
-export var health = 150
+export var health = 30
 
 func hit(damage, node):
 	health -= damage

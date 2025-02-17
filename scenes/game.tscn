@@ -42,9 +42,9 @@ script = ExtResource( 7 )
 
 [node name="score" type="Label" parent="HUD"]
 margin_left = 2.50836
-margin_top = 5.99323
+margin_top = -2.02486
 margin_right = 1025.51
-margin_bottom = 73.9932
+margin_bottom = 65.9751
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -57,7 +57,7 @@ position = Vector2( 875.647, 530.512 )
 script = ExtResource( 12 )
 sensor_radius = 500
 radius = 100.0
-tank = null
+tank = NodePath("../../Tank")
 
 [node name="timer_update" type="Timer" parent="HUD/radar_circle"]
 wait_time = 0.33
