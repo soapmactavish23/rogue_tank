@@ -1,5 +1,5 @@
 <h1 align="center">
-   <img src="./prints/logo.png" width="100">
+	https://github.com/user-attachments/assets/cc56bb2b-f279-4fbb-9323-66b9ff9736da
 </h1>
 
 <h4 align="center"> 
@@ -26,16 +26,6 @@ Um agradecimento ao Vitor Melo pelas dicas em desenvolvimento de games a um temp
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" heigth="20" width="20"/> [Godot](https://godotengine.org/)
-
-## 📷 Video Demonstrativo
-
-<div>
-
-
-https://github.com/user-attachments/assets/cc56bb2b-f279-4fbb-9323-66b9ff9736da
-
-
-</div>
 
 ## 🖥️ Plataforma adotada
 
