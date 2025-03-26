@@ -31,6 +31,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 <div>
 
+
+https://github.com/user-attachments/assets/cc56bb2b-f279-4fbb-9323-66b9ff9736da
+
+
 </div>
 
 ## 🖥️ Plataforma adotada
